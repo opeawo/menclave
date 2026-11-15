@@ -1,0 +1,10 @@
+version = 1
+
+[build]
+language = "python"
+framework = "flask"
+pythonVersion = "3.12"
+installCommand = "pip install -r requirements.txt"
+buildCommand = "python -m compileall -q server"
+startCommand = "gunicorn --config gunicorn.conf.py server.wsgi:app"
+port = 8000

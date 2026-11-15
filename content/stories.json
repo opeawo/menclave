@@ -1,0 +1,178 @@
+[
+  {
+    "slug": "good-man",
+    "title": "What Does It Really Mean to Be a Good Man?",
+    "category": "Faith & Purpose",
+    "deck": "Character is formed in the choices that rarely make the headlines.",
+    "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=1300&q=85",
+    "alt": "Portrait of a man",
+    "sections": [
+      {
+        "heading": "Start with the ordinary",
+        "body": "The question becomes practical when we bring it home. How do we speak when we are tired? Do we keep promises when keeping them is inconvenient? Character takes shape in these small decisions, long before it becomes visible to anyone else."
+      },
+      {
+        "heading": "Strength with responsibility",
+        "body": "Strength finds its purpose in service. Being dependable, accepting correction and making room for the needs of others demand a kind of courage that cannot be measured by status."
+      },
+      {
+        "heading": "A practice, not a finish line",
+        "body": "Faith invites a daily return to humility. Choose one promise to keep this week, one conversation to approach honestly and one person to serve without needing recognition."
+      }
+    ]
+  },
+  {
+    "slug": "discipline",
+    "title": "Discipline Is a Spiritual Practice",
+    "category": "Faith & Purpose",
+    "deck": "Make room for what matters through small, repeatable acts of attention.",
+    "image": "https://images.unsplash.com/photo-1500534623283-312aade485b7?w=1300&q=85",
+    "alt": "Open landscape",
+    "sections": [
+      {
+        "heading": "Make a little room",
+        "body": "A quiet morning does not need to be an impressive morning. Begin with a few minutes of prayer or reflection before the day fills with other demands."
+      },
+      {
+        "heading": "Choose a sustainable rhythm",
+        "body": "A practice you can return to is more useful than a perfect routine you abandon. Start small, notice what interrupts your attention and adjust your environment."
+      },
+      {
+        "heading": "Return without spectacle",
+        "body": "Missing a day need not become a verdict on your character. Begin again. Let discipline serve a meaningful life rather than become another competition."
+      }
+    ]
+  },
+  {
+    "slug": "fatherhood",
+    "title": "The Father You Want to Become",
+    "category": "Relationships & Family",
+    "deck": "Presence grows through the ordinary moments we choose to share.",
+    "image": "https://images.unsplash.com/photo-1511895426328-dc8714191300?w=1300&q=85",
+    "alt": "Family spending time together",
+    "sections": [
+      {
+        "heading": "Be available",
+        "body": "A shared meal, a walk or a few uninterrupted minutes can open a conversation. Attention tells a child that their everyday experiences matter."
+      },
+      {
+        "heading": "Let repair be visible",
+        "body": "When you speak harshly, acknowledge it plainly. An apology can model responsibility and show that love includes a willingness to change."
+      },
+      {
+        "heading": "Build a rhythm together",
+        "body": "Choose a simple ritual you can keep. Make space for listening without turning every conversation into a lesson."
+      }
+    ]
+  },
+  {
+    "slug": "ambition",
+    "title": "Is Ambition Slowly Destroying Your Peace?",
+    "category": "Money & Ambition",
+    "deck": "A reflection on achievement, stewardship and knowing when enough is enough.",
+    "image": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1300&q=85",
+    "alt": "Bright office workspace",
+    "sections": [
+      {
+        "heading": "Ask what success serves",
+        "body": "Work can express creativity and care. It helps to name the people and purposes your ambitions are meant to serve, then examine whether your schedule reflects them."
+      },
+      {
+        "heading": "Notice the cost",
+        "body": "Look at what receives your best attention and what receives what is left. An honest conversation with someone close to you may reveal a tradeoff you have stopped noticing."
+      },
+      {
+        "heading": "Define enough",
+        "body": "Choose boundaries that protect your commitments. Leave room to revisit your goals as your responsibilities and circumstances change."
+      }
+    ]
+  },
+  {
+    "slug": "starting-again",
+    "title": "Finding Faith When Life Comes Apart",
+    "category": "Men’s Stories",
+    "deck": "An editorial reflection on asking for help and beginning again.",
+    "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1300&q=85",
+    "alt": "Mountains in morning light",
+    "sections": [
+      {
+        "heading": "Tell the truth to someone",
+        "body": "A difficult season can become more isolating when we try to carry it alone. Consider a trusted friend, pastor or qualified professional who can listen without demanding a polished explanation."
+      },
+      {
+        "heading": "Take the next small step",
+        "body": "Rebuilding may begin with an ordinary act: answering a message, asking for support or keeping one manageable commitment."
+      },
+      {
+        "heading": "Leave space for uncertainty",
+        "body": "Faith can include unresolved questions. You do not need a finished story to accept companionship along the way."
+      }
+    ]
+  },
+  {
+    "slug": "rest",
+    "title": "Make Room for Rest",
+    "category": "Health & Fitness",
+    "deck": "An invitation to give recovery a place in your week.",
+    "image": "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=1300&q=85",
+    "alt": "Sunlight over a quiet landscape",
+    "sections": [
+      {
+        "heading": "Notice your rhythm",
+        "body": "Consider which parts of the week leave you depleted and which help you feel present. Rest begins with paying attention to those patterns."
+      },
+      {
+        "heading": "Protect a pause",
+        "body": "Set aside a manageable stretch of time without a productivity goal. A quiet walk, a shared meal or an evening away from work can be a starting point."
+      },
+      {
+        "heading": "Let others help",
+        "body": "Talk about competing responsibilities with the people who share them. A sustainable rhythm often requires cooperation."
+      }
+    ]
+  },
+  {
+    "slug": "intentional-living",
+    "title": "The Art of Living with Intention",
+    "category": "Style & Living",
+    "deck": "A thoughtful approach to the spaces and objects of everyday life.",
+    "image": "https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?w=1300&q=85",
+    "alt": "Clothing and personal style",
+    "sections": [
+      {
+        "heading": "Choose with care",
+        "body": "Notice what you use, what you value and what simply takes up space. Let those observations guide your next purchase or decision to keep something."
+      },
+      {
+        "heading": "Care for what you own",
+        "body": "Repairing, cleaning and maintaining everyday objects can express stewardship. Start with something you already have."
+      },
+      {
+        "heading": "Make room for hospitality",
+        "body": "A meaningful home has room for people. Consider one small change that would make sharing your space easier."
+      }
+    ]
+  },
+  {
+    "slug": "listening",
+    "title": "Learning to Listen Across Differences",
+    "category": "Culture & Society",
+    "deck": "Curiosity and conviction can share the same conversation.",
+    "image": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1300&q=85",
+    "alt": "People gathered at an event",
+    "sections": [
+      {
+        "heading": "Begin with a question",
+        "body": "Ask what experience shaped the other person’s view. Listen long enough to understand their answer before preparing your reply."
+      },
+      {
+        "heading": "Speak with care",
+        "body": "State your convictions clearly while leaving room for correction. You can disagree without turning a person into an argument to win."
+      },
+      {
+        "heading": "Know when to pause",
+        "body": "Some conversations need time. A respectful pause can give both people space to return with more patience."
+      }
+    ]
+  }
+]
