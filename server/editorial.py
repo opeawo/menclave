@@ -68,7 +68,10 @@ def render_blocks(data):
         elif kind=='paragraph':output.append('<p>'+e(b['text'])+'</p>')
         elif kind=='heading':output.append('<h2 id="'+anchor+'">'+e(b['text'])+'</h2>')
         elif kind=='image':output.append('<figure class="inline-photo"><img loading="lazy" src="'+e(b['src'])+'" alt="'+e(b['alt'])+'"><figcaption>'+e(b.get('caption',''))+'</figcaption></figure>')
-        elif kind=='quote':output.append('<blockquote class="pullquote">'+e(b['text'])+('<cite>'+e(b['attribution'])+'</cite>' if b.get('attribution') else '')+'</blockquote>')
+        elif kind=='quote':
+            attribution=b.get('attribution','');author,separator,source=attribution.partition(' · ')
+            caption=('<figcaption><span class="quote-author">'+e(author)+'</span>'+('<span class="quote-source">'+e(source)+'</span>' if separator else '')+'</figcaption>') if attribution else ''
+            output.append('<figure class="editorial-quote"><blockquote><p>'+e(b['text'])+'</p></blockquote>'+caption+'</figure>')
         elif kind=='qa':output.append('<section class="qa"><h2>'+e(b['question'])+'</h2><p>'+e(b['answer'])+'</p></section>')
         elif kind=='checklist':
             checks+=1;items=''.join('<li><label><input type="checkbox"><span>'+e(item)+'</span></label></li>' for item in b['items'])
