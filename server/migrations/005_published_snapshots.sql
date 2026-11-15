@@ -1,0 +1,2 @@
+CREATE TABLE published_content(entity TEXT PRIMARY KEY REFERENCES entities(id),revision INTEGER NOT NULL,snapshot TEXT NOT NULL);
+INSERT INTO published_content(entity,revision,snapshot) SELECT id,revision,json_object('id',id,'kind',kind,'data',json(data),'status',status,'revision',revision,'created',created,'updated',updated) FROM entities WHERE status='published' AND kind IN ('article','interview','news','page','newsletter');

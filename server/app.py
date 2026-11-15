@@ -56,8 +56,17 @@ class Store:
             if secrets.randbelow(100) == 0:
                 db.execute('DELETE FROM limits WHERE rowid NOT IN (SELECT rowid FROM limits ORDER BY rowid DESC LIMIT 10000)')
         return count > maximum
+    def abuse_limits(self):
+        with self.connect() as db:
+            row=db.execute("SELECT data FROM entities WHERE kind='abuse_rules' ORDER BY updated DESC LIMIT 1").fetchone()
+        configured=json.loads(row[0]) if row else {}
+        return {'session_limit':configured.get('session_limit',10),'network_limit':configured.get('network_limit',30)}
     def public(self, row):
-        return {k: row[k] for k in ('id','parent','topic','title','body','created')}
+        result={k: row[k] for k in ('id','parent','topic','title','body','created')}
+        with self.connect() as db:
+            control=db.execute('SELECT staff,locked FROM thread_controls WHERE post=?',(row['id'],)).fetchone()
+            result.update(staff=bool(control['staff']) if control else False,locked=bool(control['locked']) if control else False)
+        return result
     def listing(self, query='', topic=''):
         with self.connect() as db:
             rows = db.execute("SELECT p.*, (SELECT count(*) FROM posts r WHERE r.parent=p.id AND r.status='approved') replies FROM posts p WHERE p.parent IS NULL AND p.status='approved' AND (?='' OR p.topic=?) AND (?='' OR instr(lower(p.title || ' ' || p.body),lower(?))>0) ORDER BY p.created DESC,p.id LIMIT 100", (topic,topic,query,query)).fetchall()
@@ -80,6 +89,8 @@ class Store:
                 if not isinstance(parent,str): raise ValueError('Invalid conversation.')
                 row = db.execute("SELECT topic FROM posts WHERE id=? AND parent IS NULL AND status='approved'", (parent,)).fetchone()
                 if not row: raise ValueError('This conversation is unavailable.')
+                control=db.execute('SELECT locked FROM thread_controls WHERE post=?',(parent,)).fetchone()
+                if control and control['locked']:raise ValueError('This conversation is locked.')
                 title, topic = '', row['topic']
             elif not isinstance(title,str) or not 10 <= len(title.strip()) <= 160 or topic not in TOPICS:
                 raise ValueError('Choose a topic and write a title between 10 and 160 characters.')
@@ -122,4 +133,7 @@ if __name__ == '__main__':
     import sys
     sys.path.insert(0,str(ROOT))
     from server.web import create_app
-    create_app().run(host=os.environ.get('ENCLAVE_HOST','127.0.0.1'),port=int(os.environ.get('PORT','8000')),debug=False)
+    from server.mcp_app import create_asgi
+    import uvicorn
+    web=create_app()
+    uvicorn.run(create_asgi(web,web.extensions['platform']),host=os.environ.get('ENCLAVE_HOST','127.0.0.1'),port=int(os.environ.get('PORT','8000')),access_log=False,log_level='warning')

@@ -17,7 +17,7 @@
     button.addEventListener('click', () => { reportPost = id; $('report-status').textContent = ''; $('report-dialog').showModal(); });
     return button;
   }
-  function meta(post, label = 'Anonymous') {
+  function meta(post, label = (post.staff ? 'Menclave team' : 'Anonymous')) {
     const el = node('div',undefined,'thread-meta'); el.append(node('span',`${label} · ${date(post.created)}`),reportButton(post.id)); return el;
   }
   async function list() {
@@ -53,7 +53,8 @@
       const heading = node('h2',post.title);heading.id='thread-title';
       $('thread-content').replaceChildren(node('p',post.topic,'eyebrow'),heading,meta(post),node('p',post.body,'post-body'),node('h3',`${post.replies.length} replies`));
       post.replies.forEach(reply => {const el=node('article',undefined,'reply-card');el.append(meta(reply),node('p',reply.body,'post-body'));$('thread-content').append(el);});
-      $('reply-section').hidden=false;
+      $('reply-section').hidden=post.locked;
+      if(post.locked)$('thread-content').append(node('p','This conversation is closed to new replies.','form-hint'));
     } catch(error) { const heading=node('h2',error.message);heading.id='thread-title';$('thread-content').replaceChildren(heading); }
   }
   document.querySelectorAll('[data-close]').forEach(button => button.addEventListener('click',() => $(button.dataset.close).close()));
@@ -69,5 +70,11 @@
   $('community-search').addEventListener('submit',event=>{event.preventDefault();list();});
   $('topic-filter').addEventListener('change',list);
   const params = new URLSearchParams(location.search);$('conversation-search').value=params.get('q') || '';$('topic-filter').value=params.get('topic') || '';
+  fetch('/api/community-config').then(response=>response.json()).then(config=>{
+    if(config.text && config.text !== 'Protect privacy. Be respectful. No hate, harassment or spam. Posts are reviewed.'){
+      const list=document.querySelector('#guidelines ol');
+      if(list){const item=document.createElement('li');item.textContent=config.text;list.replaceChildren(item);}
+    }
+  }).catch(()=>{});
   list();
 })();

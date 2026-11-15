@@ -12,7 +12,20 @@
     form.addEventListener('submit', event => {
       event.preventDefault();
       const status = document.querySelector('#form-message');
-      if (status) status.textContent = 'Newsletter subscriptions are not active in this design preview. No email has been stored.';
+      const button = form.querySelector('button');
+      button.disabled = true;
+      (async () => {
+        try {
+          const session = await fetch('/api/session');
+          if (!session.ok) throw Error('Newsletter subscriptions are not active. No email has been stored.');
+          const {csrf} = await session.json();
+          const response = await fetch('/api/newsletter/subscribe', {method:'POST', headers:{'Content-Type':'application/json','X-CSRF-Token':csrf},body:JSON.stringify({email:form.elements.email.value})});
+          const result = await response.json();
+          status.textContent = result.message || result.error || 'Please try again.';
+          if (response.ok) form.reset();
+        } catch (error) { status.textContent = 'We could not confirm your subscription request. Please try again later.'; }
+        finally {button.disabled=false;}
+      })();
     });
   }
 })();

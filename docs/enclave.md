@@ -4,7 +4,7 @@ Fresh standalone community implementation. No previous data is imported. No lega
 
 ## Local operation
 
-Install `requirements.txt` in a virtual environment, then run `.venv/bin/python server/app.py` from the project directory. Open `/enclave.html` on the printed URL. The standard static server can still preview the magazine but cannot handle community requests.
+Install `requirements.txt` in a virtual environment, then run `.venv-mcp/bin/python server/app.py` from the project directory. Open `/enclave.html` on the printed URL. The standard static server can still preview the magazine but cannot handle community requests.
 
 SQLite storage defaults to `.local/enclave.sqlite3`, which is ignored by Git. Storage persists across restarts. No fake community posts or activity counts are seeded.
 
@@ -29,7 +29,7 @@ GET `/api/session` issues a cookie and CSRF token. GET `/api/threads?q=&topic=` 
 
 ## Before public launch
 
-Local development uses Flask's development server. The production entry point uses Gunicorn and refuses incomplete production settings. Configure a hosting proxy with TLS, request/body limits, connection limits and managed process supervision; see pxxl-deployment.md. Configure `ENCLAVE_ORIGIN` to the exact HTTPS public origin, `ENCLAVE_SECURE_COOKIE=1`, a private persistent `ENCLAVE_DB` path, and a moderator secret. `ENCLAVE_HOST` and `PORT` control listening; keep the app unreachable except through the intended proxy. Do not trust arbitrary forwarded address headers; this implementation uses the direct peer address, so behind a proxy the network rate limit is shared unless adapted safely.
+Local development uses the shared ASGI/Uvicorn server. The production entry point uses ASGI/Uvicorn and refuses incomplete production settings. Configure a hosting proxy with TLS, request/body limits, connection limits and managed process supervision; see pxxl-deployment.md. Configure `ENCLAVE_ORIGIN` to the exact HTTPS public origin, `ENCLAVE_SECURE_COOKIE=1`, a private persistent `ENCLAVE_DB` path, and a moderator secret. `ENCLAVE_HOST` and `PORT` control listening; keep the app unreachable except through the intended proxy. Do not trust arbitrary forwarded address headers; this implementation uses the direct peer address, so behind a proxy the network rate limit is shared unless adapted safely.
 
 Set up encrypted SQLite backups using SQLite's online backup API, test restores, and define retention/deletion procedures. Restrict database and backup access. Add edge abuse protection and review moderation staffing, privacy copy and incident handling before opening to the public. Moderation decisions are recorded in a metadata-only audit table. The current moderator credential is shared; individual moderator accounts and MFA are future work. The new site has not replaced existing production hosting.
 
@@ -37,7 +37,7 @@ Set up encrypted SQLite backups using SQLite's online backup API, test restores,
 
 ```sh
 node --test tests/site.test.cjs
-.venv/bin/python -m unittest discover -s tests -p 'test_*.py' -v
+.venv-mcp/bin/python -m unittest discover -s tests -p 'test_*.py' -v
 ```
 
 Integration tests use isolated temporary databases and local HTTP servers. They cover pending visibility, approval, replies, reports, purging, persistence, filtering, private field exclusion, origin/CSRF enforcement, private asset protection, moderator authentication and write rate limiting.

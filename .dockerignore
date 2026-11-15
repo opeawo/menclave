@@ -1,6 +1,7 @@
 .git
 .local
 .venv
+.venv-mcp
 __pycache__
 .env
 .env.*

@@ -88,7 +88,7 @@ class CommunityTests(unittest.TestCase):
     def test_schema_upgrade_audit_and_backup(self):
         id=self.question();self.approve(id)
         with self.store.connect() as db:
-            self.assertEqual(db.execute('PRAGMA user_version').fetchone()[0],2)
+            self.assertEqual(db.execute('PRAGMA user_version').fetchone()[0],7)
             audit=db.execute('SELECT * FROM moderation_audit').fetchone()
             self.assertEqual(audit['target'],id)
             self.assertNotIn('body',audit.keys())

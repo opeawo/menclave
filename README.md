@@ -1,77 +1,63 @@
 # Menclave
 
-**The Art of Being a Man.** A premium editorial publication for men of faith: life, purpose, relationships, ambition, health, style, and brotherhood.
+**The Art of Being a Man.** An editorial publication and anonymous community for men of faith, with a first-party MCP management endpoint.
 
 ## Run locally
 
-This is a zero-build HTML/CSS/JavaScript prototype. Open `index.html`, or serve the repository:
+Python 3.11+ is required. Use an isolated environment:
 
 ```sh
-python3 -m http.server 8000
+python3.11 -m venv .venv-mcp
+.venv-mcp/bin/python -m pip install -r requirements.txt -c requirements.lock.txt
+.venv-mcp/bin/python server/app.py
 ```
 
-Visit http://localhost:8000. The featured interview template is at `/interview.html`.
+The server defaults to `http://127.0.0.1:8000`. Magazine HTML can still be viewed with a static server, but the CMS, community, administration and MCP require this ASGI server.
 
-## Status
+| Path | Purpose |
+| --- | --- |
+| `/` | Magazine homepage |
+| `/magazine` | Database-backed publication archive |
+| `/magazine/<slug>` | Published editorial content |
+| `/enclave.html` | Anonymous community |
+| `/admin` | Trusted owner login, assistant grants and approvals |
+| `/admin/editorial` | Editorial studio |
+| `/moderation.html` | Community moderation |
+| `/mcp` | Authenticated MCP Streamable HTTP endpoint |
+| `/api/health` | Backend readiness |
+| `/sitemap.xml`, `/feed.xml` | Published content distribution |
 
-- Responsive magazine homepage
-- Mobile navigation and category rail
-- Feature-interview page template
-- Standalone anonymous community with persistent SQLite storage and moderation; local development only
-- Newsletter interface, not yet attached to a mailing service
-- Editorial copy and interviewees are clearly labeled **concept/demo content**
-- Photography references external Unsplash images for prototyping, replace with approved licensed images for launch
+Set a strong, unique `ENCLAVE_ADMIN_KEY` securely in the process environment before startup to enable owner access. Do not reuse a hosting key or commit secrets. Connect each assistant with its own scoped token or OAuth grant, never the owner key.
 
-**Do not deploy this over the current Menclave site or modify its production database until the existing app and its anonymous Q&A data have been audited.**
+## What is implemented
 
-## Planned information architecture
+- Responsive magazine design; CMS-managed content with revisions, draft/public snapshots, review and scheduling.
+- Anonymous questions/replies, approval queues, reports, thread locks, staff-labeled prompts and editable guidelines/abuse limits.
+- Media upload and transformations, branding/navigation/homepage settings, author/category/tag records, redirects and SEO/feed generation.
+- Official MCP SDK endpoint: 116 explicit tool definitions, scope-enforced discovery/execution, resources and prompts. Provider-dependent tools stay hidden until configured.
+- OAuth authorization code with S256 PKCE and owner consent; expiring personal assistant tokens, revocation, owner CSRF sessions and metadata-only auditing.
+- Durable jobs and exact-change approvals, optimistic concurrency and idempotent writes.
+- Real SMTP outbox adapter with double opt-in, consent, suppression, unsubscribe and ambiguous-delivery handling; owner-allowlisted test recipients.
+- Aggregate page-request analytics, signed allowlisted webhook adapter and Menclave-scoped Pxxl MCP adapter.
+- Versioned SQLite migrations, private backups, integrity checks and offline restore with runtime/worker interlocks and grant invalidation.
 
-- `/` home
-- `/magazine` editorial archive
-- `/magazine/[slug]` articles and interviews
-- `/magazine/category/[slug]` categories
-- `/news` curated news
-- `/enclave.html` fresh standalone discussion experience
-- `/newsletter` newsletter archive and subscription
+External SMTP, Pxxl deployment and webhook delivery need provider configuration; no live external delivery or deployment is claimed. The local database starts with clearly labeled editorial concept stories and no fabricated community activity. Photography uses external Unsplash references and should be reviewed for launch.
 
-## Build next
-
-1. Audit the current Menclave production application, hosting, auth, anonymous question and comment storage, permissions, and route structure.
-2. Choose the existing application stack or a justified new stack. Preserve data and legacy URLs.
-3. Build reusable magazine modules and CMS-managed articles, authors, sections, interviews, media, drafts, and preview.
-4. Wire the real community to the new site, with privacy-safe anonymous identity handling and moderation.
-5. Add verified newsletter double opt-in, unsubscribes, transactional state, and privacy disclosure.
-6. Add tests, CI, analytics, SEO, accessibility, performance budgets and production deployment workflow.
-
-## Design
-
-Black/cream editorial palette, oxblood accents, condensed display type and serif body copy. The design brief is in `AGENTS.md`. Avoid a generic blog template.
-
-## Editorial content foundation
-
-`content/stories.json` is the source for the magazine archive and eight concept story pages.
-Edit the title, category, deck, image, alt text and sections, then run:
+## Verification
 
 ```sh
-node scripts/build.mjs
-node --test tests/site.test.cjs
+sh scripts/check.sh
 ```
 
-Commit the generated HTML alongside the content. CI checks that generated pages are current.
-The magazine archive supports search, category filters and shareable filter URLs; without JavaScript all stories remain accessible. Homepage and interview HTML remain hand-authored.
+The checks include official MCP client interoperability over real HTTP, authorization boundaries, publishing/approval/concurrency, media bytes, moderation/privacy, subscriptions and delivery retry safety, scheduling, backup integrity and offline restore. SMTP is mocked in tests; real provider delivery is a separate launch check.
 
-This is a file-based content foundation, not an integrated CMS or editorial admin. Before selecting a hosted CMS or connecting the community, audit the existing production application and its data contracts. Newsletter submission still stores nothing.
+## Operation and deployment
 
+- [MCP setup, permissions and provider configuration](docs/mcp-operations.md)
+- [Pxxl deployment requirements](docs/pxxl-deployment.md)
+- [Community operation](docs/enclave.md)
+- [Original capability plan](docs/mcp-plan.md)
 
-## Run The Enclave
+Production runs `uvicorn server.asgi:app --host 0.0.0.0 --port 8000 --no-access-log --log-level warning`. `pxxl.toml` contains the GitHub deployment configuration; `deploy/Dockerfile` is an optional container build. Production refuses to start without an HTTPS origin, a strong owner key and an explicit database path.
 
-Use `python3 server/app.py` instead of the static server to enable anonymous questions, replies, reports, topic browsing and moderation. Open `/enclave.html`. New posts await approval; the fresh database starts empty. Set `ENCLAVE_ADMIN_KEY` in the server environment before using `/moderation.html`. The current preview has moderation disabled until a key is configured.
-
-See [community operation and hosting requirements](docs/enclave.md). No legacy community data is migrated. This implementation is local and has not been publicly deployed.
-
-
-## Deployable backend
-
-Install dependencies in a virtual environment with `python3 -m venv .venv` and `.venv/bin/pip install -r requirements.txt`. Start local development with `.venv/bin/python server/app.py`. Production uses Flask behind Gunicorn through `server.wsgi:app`, with versioned SQLite migrations, an anonymous community API, private moderation, metadata-only moderation audit records, health checks and backup/integrity commands.
-
-See [Pxxl deployment configuration](docs/pxxl-deployment.md). Hosting and persistent storage still require configuration in Pxxl.
+A durable volume is mandatory. Keep one app replica and one worker with SQLite; media/backups default alongside the database. Never put community data on an ephemeral app filesystem. The existing Menclave production site has not been replaced, and no legacy service data is imported.

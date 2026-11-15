@@ -1,6 +1,6 @@
 # Menclave MCP capability plan
 
-Status: proposed contract, not an implemented endpoint. The current backend supports the community API; CMS administration, newsletter integration and these MCP tools still need implementation. Never advertise a tool as operational until its underlying service exists and passes end-to-end tests.
+Status: implemented tool contract and services; see mcp-operations.md for verification and provider requirements. External SMTP, webhook and Pxxl actions stay disabled until configured and have not been live-verified. Grokbot-specific compatibility is not yet verified.
 
 ## Endpoint and clients
 
