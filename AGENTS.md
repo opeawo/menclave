@@ -6,7 +6,7 @@ Build **Menclave, the GQ for men of faith**, combining premium men's magazine ed
 ## Visual system
 - Art direction: high-end men's magazine, bold photography and sophisticated typography, NOT a SaaS dashboard or conventional church template.
 - Ink black `#121212`, warm paper `#f4f0e9`, oxblood `#a32e2b`, dark charcoal.
-- Headlines: Barlow Condensed 700-900. Body: DM Sans. Editorial prose and pull quotes: Libre Baskerville.
+- Headlines: Barlow Condensed 700-900. Body: Instrument Sans. Editorial prose and pull quotes: Libre Baskerville.
 - Mobile-first. Keep hero photography cinematic and Q&A pages single-column on mobile.
 - Use CSS Grid/Flexbox, semantic HTML, accessible markup. Keep page fast and avoid unnecessary dependencies.
 

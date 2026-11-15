@@ -217,7 +217,7 @@ def create_app(store=None, admin_key=None):
     @app.get('/')
     @app.get('/<path:name>')
     def asset(name='index.html'):
-        if '/' in name or name.startswith('.') or not name.endswith(('.html','.css','.js')): return error('Not found.',404)
+        if '/' in name or name.startswith('.') or not (name.endswith(('.html','.css','.js')) or name=='select-chevron.svg'): return error('Not found.',404)
         from server.publishing import home, archive, article
         if name=='index.html':return home(platform)
         if name=='magazine.html':return archive(platform)
