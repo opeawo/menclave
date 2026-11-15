@@ -31,30 +31,32 @@
 })();
 (() => {
   const search = document.querySelector('#story-search');
-  const category = document.querySelector('#category-filter');
-  if (!search || !category) return;
+  if (!search) return;
   const cards = [...document.querySelectorAll('.archive-card')];
   const params = new URLSearchParams(location.search);
   search.value = params.get('q') || '';
-  category.value = params.get('category') || '';
+  const category = params.get('category') || '';
+  document.querySelector('#archive-heading').textContent = category || 'The Magazine.';
+  document.querySelector('#archive-all-stories').hidden = !category && !search.value;
+  if(search.value) search.closest('details').open = true;
   const filter = () => {
     const query = search.value.trim().toLocaleLowerCase();
     let count = 0;
     cards.forEach(card => {
-      card.hidden = !(card.textContent.toLocaleLowerCase().includes(query) && (!category.value || card.dataset.category === category.value));
+      card.hidden = !(card.textContent.toLocaleLowerCase().includes(query) && (!category || card.dataset.category === category));
       if (!card.hidden) count++;
     });
     document.querySelector('#archive-status').textContent = `${count} ${count === 1 ? 'story' : 'stories'}`;
     document.querySelector('#archive-empty').hidden = count !== 0;
+    document.querySelector('#archive-all-stories').hidden = !category && !search.value;
     const url = new URL(location.href);
-    for (const [key, value] of [['q', search.value], ['category', category.value]]) {
+    for (const [key, value] of [['q', search.value], ['category', category]]) {
       if (value) url.searchParams.set(key, value); else url.searchParams.delete(key);
     }
     history.replaceState(null, '', url);
   };
   search.addEventListener('input', filter);
-  category.addEventListener('change', filter);
   search.form.addEventListener('submit', event => event.preventDefault());
-  search.form.addEventListener('reset', () => { search.value = ''; category.value = ''; filter(); });
+  search.form.addEventListener('reset', () => { search.value = ''; filter(); });
   filter();
 })();
