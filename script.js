@@ -66,3 +66,20 @@
   dialog.addEventListener('keydown',event=>{if(event.key==='ArrowLeft'){event.preventDefault();move(-1);}if(event.key==='ArrowRight'){event.preventDefault();move(1);}});
   dialog.addEventListener('close',()=>opener?.focus());
 })();
+
+(() => {
+  const input=document.querySelector('#book-query');
+  if(!input)return;
+  const shelves=[...document.querySelectorAll('.book-shelf')], entries=[...document.querySelectorAll('.book-entry')],status=document.querySelector('#book-list-status');
+  input.addEventListener('input',()=>{
+    const query=input.value.trim().toLocaleLowerCase();let visible=0;
+    entries.forEach(entry=>{entry.hidden=!entry.textContent.toLocaleLowerCase().includes(query);if(!entry.hidden)visible++;});
+    shelves.forEach(shelf=>{shelf.hidden=![...shelf.querySelectorAll('.book-entry')].some(entry=>!entry.hidden);document.querySelectorAll('.article-toc a,.book-mobile-nav a').forEach(link=>{if(link.getAttribute('href')==='#'+shelf.id)link.hidden=shelf.hidden;});});
+    status.textContent=visible ? `${visible} of ${entries.length} books${query ? ' match your search' : ` · ${shelves.length} shelves`}` : 'No books match. Try another title, author or idea.';
+  });
+})();
+
+(() => {
+  const navs=[...document.querySelectorAll('.account-nav')];if(!navs.length)return;
+  fetch('/api/member').then(response=>response.ok ? response.json() : null).then(member=>{if(!member?.signed_in)return;navs.forEach(nav=>{const link=document.createElement('a');link.href='/account';link.textContent='Your account';nav.replaceChildren(link);});}).catch(()=>{});
+})();

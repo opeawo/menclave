@@ -733,5 +733,641 @@
       }
     ],
     "hero_layout": "split"
+  },
+  {
+    "slug": "top-100-books",
+    "title": "The Menclave 100: Books Every Man Should Read",
+    "deck": "A lifetime of reading. One essential list. From Achebe and Austen to Baldwin, Bonhoeffer and the books that change how we live.",
+    "category": "Culture & Society",
+    "format": "ranked-list",
+    "image": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=1600&q=85",
+    "alt": "Library bookshelves photographed by Priscilla Du Preez",
+    "concept": true,
+    "sections": [],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "A good book gives you more than something to talk about. It can sharpen your judgement, enlarge your sympathies or put a question into words that you have carried for years. These are 100 books we would make room for in a serious reading life."
+      },
+      {
+        "type": "paragraph",
+        "text": "The Menclave 100 is our editorial selection, arranged across ten shelves: faith, fiction, work, love, history and the wider world. The numbers help you find your place; the shelves offer different ways in. Start with the question that is most alive for you."
+      },
+      {
+        "type": "ranked-list",
+        "title": "The inner life",
+        "intro": "Books that ask who you are when nobody is applauding.",
+        "start": 1,
+        "items": [
+          {
+            "title": "The Bible",
+            "author": "Various authors",
+            "note": "A library of lament, poetry, law, wisdom and redemption. Read whole books in context, and make room for the passages that resist an easy answer."
+          },
+          {
+            "title": "Meditations",
+            "author": "Marcus Aurelius",
+            "note": "An emperor tries to govern his own reactions. Keep it close when your attention is being pulled towards everything except your responsibilities."
+          },
+          {
+            "title": "Confessions",
+            "author": "Augustine of Hippo",
+            "note": "Restlessness becomes a sustained examination of memory, desire and belief. Its lasting challenge is the willingness to tell the truth about yourself."
+          },
+          {
+            "title": "Man’s Search for Meaning",
+            "author": "Viktor E. Frankl",
+            "note": "Frankl’s account of imprisonment and his reflections on meaning ask what remains possible when control over circumstances has been brutally reduced."
+          },
+          {
+            "title": "The Brothers Karamazov",
+            "author": "Fyodor Dostoevsky",
+            "note": "Fathers, sons, faith and moral responsibility collide in a novel large enough to make certainty feel inadequate. Give the arguments time to work on you."
+          },
+          {
+            "title": "Things Fall Apart",
+            "author": "Chinua Achebe",
+            "note": "Okonkwo’s fear of weakness becomes inseparable from his tragedy. A foundational novel for thinking about masculinity, belonging and the violence of colonial disruption."
+          },
+          {
+            "title": "Invisible Man",
+            "author": "Ralph Ellison",
+            "note": "A young man discovers how readily institutions turn a person into a symbol. Read it for the voice, the anger and the struggle to define yourself."
+          },
+          {
+            "title": "The Death of Ivan Ilyich",
+            "author": "Leo Tolstoy",
+            "note": "A respectable life faces an uncomfortable reckoning. This short work asks whether being admired and living well have quietly become different projects."
+          },
+          {
+            "title": "The Fire Next Time",
+            "author": "James Baldwin",
+            "note": "Personal address becomes a searching examination of race, religion and America. Baldwin demands an honesty that refuses both innocence and easy hatred."
+          },
+          {
+            "title": "Mere Christianity",
+            "author": "C. S. Lewis",
+            "note": "A clear, argumentative introduction to Christian belief. Read it as a conversation partner: follow the reasoning, examine its assumptions and bring your own questions."
+          }
+        ]
+      },
+      {
+        "type": "ranked-list",
+        "title": "Faith, doubt & grace",
+        "intro": "A shelf for conviction that can survive a difficult question.",
+        "start": 11,
+        "items": [
+          {
+            "title": "Gilead",
+            "author": "Marilynne Robinson",
+            "note": "An ageing minister writes to his young son. Its quiet attention to blessing, jealousy and forgiveness makes an ordinary life feel worthy of deep examination."
+          },
+          {
+            "title": "The Pilgrim’s Progress",
+            "author": "John Bunyan",
+            "note": "Spiritual struggle takes the shape of a journey. Beneath the allegory is a recognisable account of discouragement, distraction and the need for companions."
+          },
+          {
+            "title": "Silence",
+            "author": "Shūsaku Endō",
+            "note": "Faith meets persecution and the terrible ambiguity of another person’s suffering. A demanding novel that offers no convenient distance from its central dilemma."
+          },
+          {
+            "title": "The Cost of Discipleship",
+            "author": "Dietrich Bonhoeffer",
+            "note": "An insistence that belief has consequences for how a person lives. Read slowly, with attention to the historical pressures surrounding its author."
+          },
+          {
+            "title": "The Return of the Prodigal Son",
+            "author": "Henri J. M. Nouwen",
+            "note": "A painting becomes a way to examine resentment, belonging and mercy. Especially valuable for anyone who finds receiving love harder than earning approval."
+          },
+          {
+            "title": "Orthodoxy",
+            "author": "G. K. Chesterton",
+            "note": "A lively defence of Christian belief through paradox and surprise. Its energy rewards readers willing to wrestle with an argument rather than simply inherit it."
+          },
+          {
+            "title": "The Screwtape Letters",
+            "author": "C. S. Lewis",
+            "note": "Temptation appears through distraction, vanity and small evasions. The fictional correspondence is sharpest when its spiritual diagnosis becomes embarrassingly familiar."
+          },
+          {
+            "title": "The Cross and the Lynching Tree",
+            "author": "James H. Cone",
+            "note": "Christian theology confronts the history of racial terror in America. A necessary challenge to faith that speaks of suffering while avoiding its victims."
+          },
+          {
+            "title": "The Prophetic Imagination",
+            "author": "Walter Brueggemann",
+            "note": "Scripture becomes a resource for challenging numbness and imagining a different social order. It asks what hope demands from public life."
+          },
+          {
+            "title": "The Dignity of Difference",
+            "author": "Jonathan Sacks",
+            "note": "An argument for living with religious difference without abandoning conviction. Read it for the difficult work of finding moral responsibility across boundaries."
+          }
+        ]
+      },
+      {
+        "type": "ranked-list",
+        "title": "Work, money & ambition",
+        "intro": "What success asks of you, and what it can cost.",
+        "start": 21,
+        "items": [
+          {
+            "title": "Macbeth",
+            "author": "William Shakespeare",
+            "note": "Ambition crosses a moral threshold and discovers that power cannot quiet fear. A brief, devastating study of the next compromise."
+          },
+          {
+            "title": "The Great Gatsby",
+            "author": "F. Scott Fitzgerald",
+            "note": "Reinvention, longing and wealth gather around a dream that cannot survive scrutiny. The beautiful surfaces make the emptiness underneath more unsettling."
+          },
+          {
+            "title": "Death of a Salesman",
+            "author": "Arthur Miller",
+            "note": "A man’s idea of success leaves little room for his actual life. Read it with attention to what families inherit from a father’s disappointments."
+          },
+          {
+            "title": "The Remains of the Day",
+            "author": "Kazuo Ishiguro",
+            "note": "Professional duty becomes a shelter from emotional and moral responsibility. A restrained novel about the terrible cost of recognising things late."
+          },
+          {
+            "title": "The Intelligent Investor",
+            "author": "Benjamin Graham",
+            "note": "A classic argument for discipline and caution in investing. Read for its approach to risk and judgement, while recognising that market practices and examples age."
+          },
+          {
+            "title": "The Psychology of Money",
+            "author": "Morgan Housel",
+            "note": "Short reflections on how behaviour shapes financial decisions. A useful prompt to define enough before comparison defines it for you."
+          },
+          {
+            "title": "The Wealth of Nations",
+            "author": "Adam Smith",
+            "note": "A foundational work on commerce, labour and economic organisation. Read it in historical context and attend to its arguments rather than its reputation."
+          },
+          {
+            "title": "Good to Great",
+            "author": "Jim Collins",
+            "note": "An influential account of organisational performance. Treat the cases as material for critical discussion, with hindsight and selection effects firmly in view."
+          },
+          {
+            "title": "Shoe Dog",
+            "author": "Phil Knight",
+            "note": "A founder’s memoir of building Nike through uncertainty. Best read alongside questions about whose labour and risk make a company’s origin story possible."
+          },
+          {
+            "title": "The Soul of a New Machine",
+            "author": "Tracy Kidder",
+            "note": "Engineering becomes an intimate story of work, pressure and collective effort. It makes the people inside a technical achievement visible."
+          }
+        ]
+      },
+      {
+        "type": "ranked-list",
+        "title": "Love, family & friendship",
+        "intro": "The books that make other people harder to simplify.",
+        "start": 31,
+        "items": [
+          {
+            "title": "Anna Karenina",
+            "author": "Leo Tolstoy",
+            "note": "Desire, marriage and social judgement unfold across an enormous moral landscape. Its power comes from refusing to reduce people to their worst decision."
+          },
+          {
+            "title": "Middlemarch",
+            "author": "George Eliot",
+            "note": "Private hopes meet the limits of knowledge, marriage and community. Few novels are more attentive to the distance between good intentions and useful care."
+          },
+          {
+            "title": "Pride and Prejudice",
+            "author": "Jane Austen",
+            "note": "First impressions become an education in judgement. Read the wit closely: pride, money and self-knowledge are doing serious work underneath it."
+          },
+          {
+            "title": "Beloved",
+            "author": "Toni Morrison",
+            "note": "The afterlife of slavery enters a family’s struggle to live. A formally daring novel about memory, love and injuries that exceed easy explanation."
+          },
+          {
+            "title": "Little Women",
+            "author": "Louisa May Alcott",
+            "note": "Sisters negotiate work, independence and family loyalty. A useful widening of perspective for men whose reading rarely follows women’s ambitions from the inside."
+          },
+          {
+            "title": "All About Love",
+            "author": "bell hooks",
+            "note": "An argument that love is a practice with ethical demands. Read it as an invitation to examine what your habits are actually offering others."
+          },
+          {
+            "title": "The Art of Loving",
+            "author": "Erich Fromm",
+            "note": "Love becomes a discipline of attention, knowledge and responsibility. Its central provocation is that wanting to be loved is only a beginning."
+          },
+          {
+            "title": "The Four Loves",
+            "author": "C. S. Lewis",
+            "note": "Affection, friendship, romance and charity receive distinct attention. A thoughtful companion for examining what each relationship can reasonably ask of another person."
+          },
+          {
+            "title": "The Road",
+            "author": "Cormac McCarthy",
+            "note": "A father and son travel through a devastated world. Its spare language makes care feel urgent, fragile and stubbornly necessary."
+          },
+          {
+            "title": "Between the World and Me",
+            "author": "Ta-Nehisi Coates",
+            "note": "A father addresses his son through history and bodily vulnerability. The letter form gives its larger questions an immediate, personal weight."
+          }
+        ]
+      },
+      {
+        "type": "ranked-list",
+        "title": "Home, identity & the wider world",
+        "intro": "A reading life should have more than one centre.",
+        "start": 41,
+        "items": [
+          {
+            "title": "Half of a Yellow Sun",
+            "author": "Chimamanda Ngozi Adichie",
+            "note": "Intimate relationships unfold through the Biafran War. The novel makes political catastrophe legible through the lives and loyalties it tears apart."
+          },
+          {
+            "title": "So Long a Letter",
+            "author": "Mariama Bâ",
+            "note": "A widow’s letter examines marriage, friendship and women’s independence. Its intimacy makes structural inequality impossible to dismiss as an abstract concern."
+          },
+          {
+            "title": "Season of Migration to the North",
+            "author": "Tayeb Salih",
+            "note": "A return home opens a disturbing reckoning with colonial encounter, desire and power. A short novel that leaves a long argument behind."
+          },
+          {
+            "title": "Petals of Blood",
+            "author": "Ngũgĩ wa Thiong’o",
+            "note": "Lives intersect in a searching critique of postcolonial power and economic betrayal. Read it for the connection between private wounds and public arrangements."
+          },
+          {
+            "title": "Cry, the Beloved Country",
+            "author": "Alan Paton",
+            "note": "A father’s search opens onto a divided South Africa. Its attention to grief and reconciliation invites both empathy and historical scrutiny."
+          },
+          {
+            "title": "The Famished Road",
+            "author": "Ben Okri",
+            "note": "A spirit-child narrates a world where the visible and unseen continually meet. The novel expands what a story about everyday survival can hold."
+          },
+          {
+            "title": "Nervous Conditions",
+            "author": "Tsitsi Dangarembga",
+            "note": "Education, gender and colonial power shape a young woman’s effort to define her life. An incisive book about the costs attached to opportunity."
+          },
+          {
+            "title": "One Hundred Years of Solitude",
+            "author": "Gabriel García Márquez",
+            "note": "A family’s history turns through wonder, violence and repetition. Read for the extraordinary way the fantastic can illuminate a recognisable social world."
+          },
+          {
+            "title": "The God of Small Things",
+            "author": "Arundhati Roy",
+            "note": "Family memory is shaped by caste, politics and forbidden love. Its language attends to the small details through which larger systems enter a life."
+          },
+          {
+            "title": "The Kite Runner",
+            "author": "Khaled Hosseini",
+            "note": "Friendship and betrayal become a reckoning with guilt across distance and time. Its emotional force rests on the question of what repair can require."
+          }
+        ]
+      },
+      {
+        "type": "ranked-list",
+        "title": "Courage, conflict & conscience",
+        "intro": "Accounts of what people endure, and what they choose.",
+        "start": 51,
+        "items": [
+          {
+            "title": "The Iliad",
+            "author": "Homer",
+            "note": "War is seen through rage, grief and the limits of glory. Read beyond the battles to the moments when an enemy becomes recognisably human."
+          },
+          {
+            "title": "The Odyssey",
+            "author": "Homer",
+            "note": "Adventure is also a story of homecoming, loyalty and disguise. Returning home proves more complicated than surviving the journey."
+          },
+          {
+            "title": "War and Peace",
+            "author": "Leo Tolstoy",
+            "note": "Private lives move inside vast historical forces. The novel unsettles tidy ideas about control, greatness and the people who supposedly make history."
+          },
+          {
+            "title": "All Quiet on the Western Front",
+            "author": "Erich Maria Remarque",
+            "note": "A young soldier’s experience strips war of its recruiting language. Read it before making sacrifice sound simple from a safe distance."
+          },
+          {
+            "title": "Catch-22",
+            "author": "Joseph Heller",
+            "note": "Military bureaucracy becomes a darkly comic system that consumes reason. Its absurdity is a way of seeing how institutions protect themselves."
+          },
+          {
+            "title": "Slaughterhouse-Five",
+            "author": "Kurt Vonnegut",
+            "note": "A fractured narrative returns to war and the difficulty of representing it. The broken chronology is part of the book’s moral force."
+          },
+          {
+            "title": "If This Is a Man",
+            "author": "Primo Levi",
+            "note": "Levi’s account of Auschwitz examines survival and the destruction of human dignity. Precision and restraint make the testimony profoundly demanding."
+          },
+          {
+            "title": "Night",
+            "author": "Elie Wiesel",
+            "note": "A brief account of the Holocaust confronts suffering, family and faith. Give its testimony attention without trying to turn it into a reassuring lesson."
+          },
+          {
+            "title": "Long Walk to Freedom",
+            "author": "Nelson Mandela",
+            "note": "A political life is narrated through struggle, imprisonment and collective purpose. Read with attention to the long work behind public symbols."
+          },
+          {
+            "title": "Narrative of the Life of Frederick Douglass",
+            "author": "Frederick Douglass",
+            "note": "Literacy, resistance and self-emancipation drive a foundational autobiography. Its clarity exposes the violence required to sustain a system of enslavement."
+          }
+        ]
+      },
+      {
+        "type": "ranked-list",
+        "title": "Power, freedom & justice",
+        "intro": "A shelf for becoming a more demanding citizen.",
+        "start": 61,
+        "items": [
+          {
+            "title": "The Republic",
+            "author": "Plato",
+            "note": "Justice becomes a sustained argument about the person and the state. Its proposals invite challenge as much as admiration."
+          },
+          {
+            "title": "Nicomachean Ethics",
+            "author": "Aristotle",
+            "note": "Character is examined through habit, judgement and the shape of a good life. A durable starting point for thinking beyond isolated good intentions."
+          },
+          {
+            "title": "On Liberty",
+            "author": "John Stuart Mill",
+            "note": "An influential defence of individual freedom and open discussion. Its boundaries remain useful material for arguments about responsibility and social power."
+          },
+          {
+            "title": "Nineteen Eighty-Four",
+            "author": "George Orwell",
+            "note": "Surveillance and political language become tools for remaking reality. Read for the intimate effects of power as well as its famous vocabulary."
+          },
+          {
+            "title": "Brave New World",
+            "author": "Aldous Huxley",
+            "note": "Comfort and conditioning support an unsettling social order. The book asks what freedom means when desire itself has been organised for you."
+          },
+          {
+            "title": "Animal Farm",
+            "author": "George Orwell",
+            "note": "A revolution’s promises are steadily rewritten by those who inherit power. Its simplicity makes the mechanisms of betrayal unusually clear."
+          },
+          {
+            "title": "The Trial",
+            "author": "Franz Kafka",
+            "note": "An accusation arrives without a comprehensible system of justice. The unease comes from watching a person search for rules that keep receding."
+          },
+          {
+            "title": "The Plague",
+            "author": "Albert Camus",
+            "note": "An epidemic turns ordinary obligations into moral choices. Its most enduring interest is the patient, unglamorous work of solidarity."
+          },
+          {
+            "title": "The Origins of Totalitarianism",
+            "author": "Hannah Arendt",
+            "note": "A major investigation of the conditions and forms of totalitarian power. Read critically and in conversation with later historical scholarship."
+          },
+          {
+            "title": "The New Jim Crow",
+            "author": "Michelle Alexander",
+            "note": "A forceful argument about racial inequality and mass incarceration in the United States. It invites close attention to systems that outlast their official language."
+          }
+        ]
+      },
+      {
+        "type": "ranked-list",
+        "title": "Adventure & the imagination",
+        "intro": "Books that make the world larger.",
+        "start": 71,
+        "items": [
+          {
+            "title": "Don Quixote",
+            "author": "Miguel de Cervantes",
+            "note": "A reader ventures out with an imagination that refuses the world’s corrections. Comic adventure becomes a meditation on stories and friendship."
+          },
+          {
+            "title": "Moby-Dick",
+            "author": "Herman Melville",
+            "note": "A voyage gathers obsession, labour, knowledge and a dangerous concentration of authority. Let its strange digressions become part of the journey."
+          },
+          {
+            "title": "The Lord of the Rings",
+            "author": "J. R. R. Tolkien",
+            "note": "A vast imagined world turns on friendship, endurance and the corrupting pull of power. Small acts matter within its enormous stakes."
+          },
+          {
+            "title": "The Hobbit",
+            "author": "J. R. R. Tolkien",
+            "note": "Comfort gives way to adventure, and an unlikely traveller discovers courage. A generous reminder that bravery need not arrive looking impressive."
+          },
+          {
+            "title": "Dune",
+            "author": "Frank Herbert",
+            "note": "Ecology, religion and political ambition meet in an immense speculative world. Read attentively to its questions about leaders and the people who follow them."
+          },
+          {
+            "title": "The Left Hand of Darkness",
+            "author": "Ursula K. Le Guin",
+            "note": "An unfamiliar society becomes a way to examine gender, loyalty and understanding. The journey rewards readers willing to have their assumptions unsettled."
+          },
+          {
+            "title": "Frankenstein",
+            "author": "Mary Shelley",
+            "note": "Creation brings obligations that ambition would rather avoid. A powerful novel about responsibility, rejection and the consequences of abandoning what you make."
+          },
+          {
+            "title": "The Count of Monte Cristo",
+            "author": "Alexandre Dumas",
+            "note": "Revenge supplies the engine for a magnificent adventure. Beneath the momentum is a question about what a long grievance does to a life."
+          },
+          {
+            "title": "Treasure Island",
+            "author": "Robert Louis Stevenson",
+            "note": "A map launches an adventure full of danger and uncertain loyalties. Read it for the storytelling pleasure of a world suddenly opening up."
+          },
+          {
+            "title": "The Old Man and the Sea",
+            "author": "Ernest Hemingway",
+            "note": "An ageing fisherman’s struggle becomes a spare examination of endurance and pride. Its scale is small enough for every action to carry weight."
+          }
+        ]
+      },
+      {
+        "type": "ranked-list",
+        "title": "Craft, attention & the everyday",
+        "intro": "Learning to see what a hurried life misses.",
+        "start": 81,
+        "items": [
+          {
+            "title": "Walden",
+            "author": "Henry David Thoreau",
+            "note": "An experiment in living becomes a challenge to habitual definitions of need. Read it with curiosity about both its insights and its practical circumstances."
+          },
+          {
+            "title": "A Sand County Almanac",
+            "author": "Aldo Leopold",
+            "note": "Close observation develops into an ethic of ecological responsibility. A book for learning to see land as a living relationship."
+          },
+          {
+            "title": "Pilgrim at Tinker Creek",
+            "author": "Annie Dillard",
+            "note": "The natural world receives fierce, unsettling attention. Dillard makes looking closely feel like an intellectual and spiritual discipline."
+          },
+          {
+            "title": "The Creative Act",
+            "author": "Rick Rubin",
+            "note": "Short meditations consider attention, making and creative practice. Dip into it when you need to return to the work without demanding a guaranteed outcome."
+          },
+          {
+            "title": "On Writing",
+            "author": "Stephen King",
+            "note": "Memoir meets practical advice about the craft of writing. Most useful when its lessons send you back to a page of your own."
+          },
+          {
+            "title": "Bird by Bird",
+            "author": "Anne Lamott",
+            "note": "A humane account of writing through doubt and imperfect beginnings. Read it when the size of a project has become an excuse not to start."
+          },
+          {
+            "title": "On Writing Well",
+            "author": "William Zinsser",
+            "note": "Clarity is treated as a discipline of thought and revision. Its usefulness extends to anyone whose work depends on being understood."
+          },
+          {
+            "title": "Working",
+            "author": "Studs Terkel",
+            "note": "Oral histories reveal how people experience their jobs. The range of voices makes work harder to reduce to a title or salary."
+          },
+          {
+            "title": "A Sense of Where You Are",
+            "author": "John McPhee",
+            "note": "A close portrait of basketball player Bill Bradley becomes a study of preparation and attention. Excellence appears through specific habits rather than slogans."
+          },
+          {
+            "title": "Amusing Ourselves to Death",
+            "author": "Neil Postman",
+            "note": "A critique of television asks how a medium changes public thought. Read it alongside questions about the attention habits of your own era."
+          }
+        ]
+      },
+      {
+        "type": "ranked-list",
+        "title": "Memory, mortality & a life well lived",
+        "intro": "The final shelf returns us to the people we become.",
+        "start": 91,
+        "items": [
+          {
+            "title": "East of Eden",
+            "author": "John Steinbeck",
+            "note": "Family history becomes an expansive exploration of inheritance and choice. Its moral questions are strongest when they remain attached to imperfect people."
+          },
+          {
+            "title": "The Grapes of Wrath",
+            "author": "John Steinbeck",
+            "note": "A displaced family travels through economic hardship and exclusion. The novel insists on the human consequences of arrangements often described impersonally."
+          },
+          {
+            "title": "Stoner",
+            "author": "John Williams",
+            "note": "An apparently unremarkable academic life receives extraordinary attention. A quiet novel about vocation, limitation and what counts as a life worth telling."
+          },
+          {
+            "title": "A Single Man",
+            "author": "Christopher Isherwood",
+            "note": "One day in a grieving man’s life becomes a precise account of loneliness and connection. Its compressed form makes ordinary encounters carry unusual force."
+          },
+          {
+            "title": "A Small Place",
+            "author": "Jamaica Kincaid",
+            "note": "A sharp address to the visitor unsettles comfortable ways of seeing Antigua. A brief book that asks readers to examine the position from which they look."
+          },
+          {
+            "title": "The Autobiography of Malcolm X",
+            "author": "Malcolm X with Alex Haley",
+            "note": "A life is narrated through repeated transformations of conviction and identity. Read it for the willingness to revise an understanding of the world."
+          },
+          {
+            "title": "When Breath Becomes Air",
+            "author": "Paul Kalanithi",
+            "note": "A neurosurgeon confronts terminal illness and the limits of professional mastery. The memoir asks what makes life meaningful when its horizon changes."
+          },
+          {
+            "title": "Being Mortal",
+            "author": "Atul Gawande",
+            "note": "Ageing and serious illness become questions about priorities, care and autonomy. Read for the conversations it may help you begin with people you love."
+          },
+          {
+            "title": "The Year of Magical Thinking",
+            "author": "Joan Didion",
+            "note": "Grief is examined through the mind’s attempts to bargain with loss. Its precision offers company without pretending to tidy the experience away."
+          },
+          {
+            "title": "The Little Prince",
+            "author": "Antoine de Saint-Exupéry",
+            "note": "A small fable opens large questions about friendship, care and attention. Return to it when adulthood has made the measurable seem like the only thing that matters."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Choose your next book, not your next hundred"
+      },
+      {
+        "type": "paragraph",
+        "text": "Pick one that challenges your habits and one you will enjoy returning to. Read at a pace that allows the book to leave a mark. Keep a sentence, argue with an idea, lend a copy to a friend. A reading life is made by the attention you give it."
+      },
+      {
+        "type": "thread",
+        "title": "Which book would you add?",
+        "text": "Tell us the book that changed how you see the world—and what stayed with you. This conversation is open for replies.",
+        "thread_id": "sample-reading"
+      },
+      {
+        "type": "sources",
+        "items": [
+          {
+            "title": "OCLC · The Library 100 catalogue: titles and authors",
+            "url": "https://www.oclc.org/en/worldcat/library100/top500.html"
+          },
+          {
+            "title": "Penguin Random House · Essential Penguin Classics",
+            "url": "https://www.penguinrandomhouse.com/the-read-down/essential-penguin-classics/"
+          },
+          {
+            "title": "Rabbi Sacks · The Dignity of Difference",
+            "url": "https://rabbisacks.org/books/the-dignity-of-difference/"
+          },
+          {
+            "title": "Cover photograph · Priscilla Du Preez / Unsplash",
+            "url": "https://unsplash.com/photos/shallow-focus-photography-of-bookshelfs-ggeZ9oyI-PE"
+          }
+        ]
+      }
+    ]
   }
 ]

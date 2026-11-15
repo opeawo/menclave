@@ -312,7 +312,7 @@ class PlatformTests(unittest.TestCase):
         self.assertIn('class="post-composer"',enclave)
         self.assertNotIn('class="ask-panel"',enclave)
         self.assertNotIn('id="community-search"',enclave)
-        self.assertLess(enclave.index('id="ask-form"'),enclave.index('id="thread-list"'))
+        self.assertLess(enclave.index('class="composer-signin"'),enclave.index('id="thread-list"'))
         result=self.http.get('/search?q=faith&type=articles')
         self.assertEqual(result.status_code,200)
         self.assertIn('From the magazine',result.text)

@@ -18,7 +18,7 @@
     button.addEventListener('click', () => { reportPost = id; $('report-status').textContent = ''; $('report-dialog').showModal(); });
     return button;
   }
-  function meta(post, label = (post.sample ? (post.staff ? 'Sample moderator note' : 'Sample conversation') : post.staff ? 'Menclave team' : 'Anonymous')) {
+  function meta(post, label = (post.sample ? (post.staff ? (post.parent ? 'Sample moderator note' : 'Menclave · Sample conversation') : 'Sample conversation') : post.staff ? 'Menclave team' : 'Anonymous')) {
     const el = node('div',undefined,'thread-meta'); el.append(node('span',`${label} · ${date(post.created)}`),reportButton(post.id)); return el;
   }
   async function list() {
@@ -53,7 +53,7 @@
     catch(error) {status.textContent=error.message;}
     finally {button.disabled=false;}
   }
-  $('ask-form').addEventListener('submit',event => {event.preventDefault();const form=event.currentTarget;submit(form,$('ask-status'),'/api/threads',Object.fromEntries(new FormData(form)),()=>{form.reset();$('ask').open=false;});});
+  $('ask-form')?.addEventListener('submit',event => {event.preventDefault();const form=event.currentTarget;submit(form,$('ask-status'),'/api/threads',Object.fromEntries(new FormData(form)),()=>{form.reset();$('ask').open=false;});});
   $('report-form').addEventListener('submit',event => {event.preventDefault();submit(event.currentTarget,$('report-status'),'/api/reports',{post:reportPost,reason:$('report-reason').value},()=>{});});
   const params = new URLSearchParams(location.search);
   fetch('/api/community-config').then(response=>response.json()).then(config=>{
@@ -63,7 +63,7 @@
     }
   }).catch(()=>{});
   $('composer-cancel').addEventListener('click',()=>{$('ask').open=false;});
-  $('ask').addEventListener('toggle',()=>{if($('ask').open)$('ask-title').focus();});
+  $('ask').addEventListener('toggle',()=>{if($('ask').open)$('ask-title')?.focus();});
   document.addEventListener('click',event=>{if(event.target.closest('a[href="#ask"]'))$('ask').open=true;});
   if(location.hash==='#ask')$('ask').open=true;
   list();

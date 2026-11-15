@@ -63,6 +63,7 @@ def main():
             db.execute('UPDATE assistant_clients SET revoked=1')
             db.execute('UPDATE assistant_tokens SET revoked=1')
             db.execute('DELETE FROM admin_sessions')
+            db.execute('DELETE FROM member_sessions')
             db.execute('DELETE FROM oauth_codes')
             db.execute('DELETE FROM pending_subscriptions')
             db.execute('UPDATE media_uploads SET expires=0')

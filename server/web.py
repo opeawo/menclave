@@ -40,6 +40,8 @@ def create_app(store=None, admin_key=None):
     app.extensions['platform'] = platform
     owner_session, owner_trusted, owner_page = install_identity(app,platform,key,origin,secure)
     install_editorial(app,platform,owner_session,owner_trusted,owner_page)
+    from server.members import install_members,current_member
+    install_members(app,platform,secure,owner_session,owner_page)
 
     def token():
         value = request.cookies.get('enclave_session','')
@@ -51,7 +53,7 @@ def create_app(store=None, admin_key=None):
     @app.after_request
     def protect(response):
         response.headers.update({'X-Content-Type-Options':'nosniff','Referrer-Policy':'no-referrer','X-Frame-Options':'DENY','Content-Security-Policy':CSP,'Cache-Control':'no-store' if request.path.startswith('/api/') else 'no-cache'})
-        if request.path.startswith(('/admin','/oauth/','.well-known')):response.headers['Cache-Control']='no-store'
+        if request.path.startswith(('/admin','/oauth/','.well-known','/sign-in','/sign-out','/create-account','/account','/contact.html')):response.headers['Cache-Control']='no-store'
         if request.method=='GET' and response.status_code==200 and (request.path in {'/','/index.html','/magazine','/magazine.html','/enclave.html'} or request.path.startswith(('/magazine/','/conversations'))):
             from datetime import date
             ref=urlsplit(request.headers.get('Referer','')).hostname or 'direct'
@@ -72,8 +74,9 @@ def create_app(store=None, admin_key=None):
         if request.method != 'POST': return None
         if request.headers.get('Origin') != (origin or request.host_url.rstrip('/')): return error('Request origin rejected.',403)
         value = token()
-        if not value or not hmac.compare_digest(request.headers.get('X-CSRF-Token',''),store.digest('csrf:'+value)): return error('Refresh this page before submitting.',403)
-        if not request.is_json: return error('JSON required.',415)
+        supplied=request.form.get('csrf','') if request.path in {'/sign-in','/create-account','/sign-out','/contact.html'} else request.headers.get('X-CSRF-Token','')
+        if not value or not hmac.compare_digest(supplied,store.digest('csrf:'+value)): return error('Refresh this page before submitting.',403)
+        if not request.is_json and request.path not in {'/sign-in','/create-account','/sign-out','/contact.html'}: return error('JSON required.',415)
     @app.errorhandler(HTTPException)
     def http_error(exception): return error(exception.description,exception.code)
     @app.errorhandler(sqlite3.Error)
@@ -85,7 +88,7 @@ def create_app(store=None, admin_key=None):
     @app.get('/api/session')
     def session():
         value = token() or secrets.token_hex(32)
-        response = jsonify(csrf=store.digest('csrf:'+value))
+        response = jsonify(csrf=store.digest('csrf:'+value),signed_in=bool(current_member(store)))
         response.set_cookie('enclave_session',value,max_age=2592000,httponly=True,samesite='Strict',secure=secure,path='/')
         return response
     @app.get('/api/community-config')
@@ -111,11 +114,13 @@ def create_app(store=None, admin_key=None):
     @app.post('/api/<action>')
     def submit(action):
         if action not in ['threads','replies','reports']: return error('Not found.',404)
+        member=current_member(store)
+        if action in {'threads','replies'} and not member:return error('Sign in to join the conversation.',401)
         limits=store.abuse_limits()
-        if store.limited(request.remote_addr or 'unknown','write',limits['network_limit'],3600) or store.limited(token(),'write',limits['session_limit'],600): return error('Please pause before posting again.',429)
+        if store.limited(request.remote_addr or 'unknown','write',limits['network_limit'],3600) or store.limited(member['id'] if member else token(),'write',limits['session_limit'],600): return error('Please pause before posting again.',429)
         data=request.get_json()
         if not isinstance(data,dict): return error('Invalid request.',400)
-        owner=store.digest('owner:'+token())
+        owner=store.digest('member:'+member['id']) if member else store.digest('owner:'+token())
         try:
             if action == 'reports':
                 store.report(data,owner)

@@ -1,5 +1,6 @@
 import os
 from unittest.mock import patch
+from urllib.parse import urlencode
 import http.client
 import json
 import sys
@@ -29,6 +30,9 @@ class CommunityTests(unittest.TestCase):
         status,data,headers=self.request('GET','/api/session')
         self.assertEqual(status,200)
         self.cookie=headers['Set-Cookie'].split(';')[0];self.csrf=data['csrf']
+        status,_,headers=self.request('POST','/create-account',{'email':'reader@example.test','password':'test-reader-password-123'})
+        self.assertEqual(status,302)
+        self.cookie+='; '+headers['Set-Cookie'].split(';')[0]
     def tearDown(self):
         self.server.shutdown();self.server.server_close();self.thread.join();self.tmp.cleanup()
     def request(self,method,path,data=None,admin=False,origin=True,csrf=True):
@@ -37,7 +41,10 @@ class CommunityTests(unittest.TestCase):
         if origin:headers['Origin']=f'http://127.0.0.1:{self.port}'
         if csrf:headers['X-CSRF-Token']=self.csrf
         if admin:headers['Authorization']='Bearer '+self.key
-        client.request(method,path,json.dumps(data) if data is not None else None,headers)
+        payload=json.dumps(data) if data is not None else None
+        if path=='/create-account':
+            headers['Content-Type']='application/x-www-form-urlencoded';payload=urlencode({**(data or {}),'csrf':self.csrf})
+        client.request(method,path,payload,headers)
         response=client.getresponse();raw=response.read();headers=dict(response.getheaders());status=response.status;client.close()
         try:result=json.loads(raw)
         except ValueError:result=raw.decode()
@@ -91,7 +98,7 @@ class CommunityTests(unittest.TestCase):
     def test_schema_upgrade_audit_and_backup(self):
         id=self.question();self.approve(id)
         with self.store.connect() as db:
-            self.assertEqual(db.execute('PRAGMA user_version').fetchone()[0],8)
+            self.assertEqual(db.execute('PRAGMA user_version').fetchone()[0],9)
             audit=db.execute('SELECT * FROM moderation_audit').fetchone()
             self.assertEqual(audit['target'],id)
             self.assertNotIn('body',audit.keys())

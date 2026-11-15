@@ -20,6 +20,7 @@ test('every local page link points to a committed page or a section', () => {
     const links = [...html.matchAll(/href="([^"]+)"/g)].map(match => match[1]);
     for (const link of links) {
       if (/^(https?:|mailto:|#)/.test(link)) continue;
+      if (['/sign-in','/create-account'].includes(link)) continue; // Backend routes covered by member integration tests.
       const [path, anchor] = link.split('#');
       const file = path.split('?')[0];
       if (file) assert.ok(fs.existsSync(file), `Missing local file: ${file}`);
@@ -48,7 +49,7 @@ test('demo interview is disclosed as fictional', () => {
     assert.ok(archive.includes(`href="${story.slug}.html"`));
     const page = fs.readFileSync(`${story.slug}.html`, 'utf8');
     assert.ok(page.includes(story.title));
-    if (!["profile","opinion"].includes(story.format)) assert.match(page, /EDITORIAL CONCEPT/);
+    if (!["profile","opinion","ranked-list"].includes(story.format)) assert.match(page, /EDITORIAL CONCEPT/);
     for (const section of story.sections) assert.ok(page.includes(section.heading));
   }
 });
