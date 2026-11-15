@@ -1,0 +1,1 @@
+ALTER TABLE thread_controls ADD COLUMN sample INTEGER NOT NULL DEFAULT 0;

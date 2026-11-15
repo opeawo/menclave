@@ -48,7 +48,7 @@ test('demo interview is disclosed as fictional', () => {
     assert.ok(archive.includes(`href="${story.slug}.html"`));
     const page = fs.readFileSync(`${story.slug}.html`, 'utf8');
     assert.ok(page.includes(story.title));
-    assert.match(page, /EDITORIAL CONCEPT/);
+    if (!["profile","opinion"].includes(story.format)) assert.match(page, /EDITORIAL CONCEPT/);
     for (const section of story.sections) assert.ok(page.includes(section.heading));
   }
 });

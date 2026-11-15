@@ -41,3 +41,28 @@
     if (event.key === 'Escape' && document.activeElement === input) input.blur();
   });
 })();
+
+(() => {
+  const links = [...document.querySelectorAll('.gallery-image')];
+  if (!links.length) return;
+  const dialog = document.createElement('dialog');
+  dialog.className = 'gallery-dialog'; dialog.setAttribute('aria-label','Photo gallery');
+  dialog.innerHTML = '<div class="gallery-controls"><button type="button" data-previous aria-label="Previous photograph">← Previous</button><p aria-live="polite"></p><button type="button" data-next aria-label="Next photograph">Next →</button><button type="button" data-dismiss>Close ✕</button></div><figure><img alt=""><figcaption></figcaption></figure>';
+  document.body.append(dialog);
+  let group = [], index = 0, opener;
+  const show = () => {
+    const link = group[index], image = dialog.querySelector('img');
+    image.src = link.href; image.alt = link.dataset.alt;
+    dialog.querySelector('figcaption').textContent = link.dataset.caption;
+    dialog.querySelector('[aria-live]').textContent = `${index+1} / ${group.length}`;
+  };
+  const move = delta => {index=(index+delta+group.length)%group.length;show();};
+  links.forEach(link => link.addEventListener('click',event => {
+    event.preventDefault();opener=link;group=links.filter(item=>item.dataset.gallery===link.dataset.gallery);index=group.indexOf(link);show();dialog.showModal();
+  }));
+  dialog.querySelector('[data-previous]').addEventListener('click',()=>move(-1));
+  dialog.querySelector('[data-next]').addEventListener('click',()=>move(1));
+  dialog.querySelector('[data-dismiss]').addEventListener('click',()=>dialog.close());
+  dialog.addEventListener('keydown',event=>{if(event.key==='ArrowLeft'){event.preventDefault();move(-1);}if(event.key==='ArrowRight'){event.preventDefault();move(1);}});
+  dialog.addEventListener('close',()=>opener?.focus());
+})();

@@ -19,7 +19,9 @@ The server defaults to `http://127.0.0.1:8000`. Magazine HTML can still be viewe
 | `/` | Magazine homepage |
 | `/magazine` | Database-backed publication archive |
 | `/magazine/<slug>` | Published editorial content |
-| `/enclave.html` | Anonymous community |
+| `/conversations` | Server-rendered anonymous conversation feed |
+| `/conversations/<id>` | Permanent conversation and approved replies |
+| `/enclave.html` | Compatible feed URL; old `?thread=` links redirect |
 | `/admin` | Trusted owner login, assistant grants and approvals |
 | `/admin/editorial` | Editorial studio |
 | `/moderation.html` | Community moderation |
@@ -62,3 +64,22 @@ The checks include official MCP client interoperability over real HTTP, authoriz
 Production runs `uvicorn server.asgi:app --host 0.0.0.0 --port 8000 --no-access-log --log-level warning`. `pxxl.toml` contains the GitHub deployment configuration; `deploy/Dockerfile` is an optional container build. Production refuses to start without an HTTPS origin, a strong owner key and an explicit database path.
 
 A durable volume is mandatory. Keep one app replica and one worker with SQLite; media/backups default alongside the database. Never put community data on an ephemeral app filesystem. The existing Menclave production site has not been replaced, and no legacy service data is imported.
+
+## Editorial format samples
+
+The ten magazine samples cover interviews, checklists, photo stories (one to three inline images), how-to steps, personal essays, video, image galleries, discussion-led articles, researched profiles and opinion. `content/stories.json` is the sample source; `node scripts/build.mjs` rebuilds static pages. Python 3 is also used by that build for the shared, escaping block renderer. Runtime pages, owner previews, search and MCP all use the same block model; legacy heading/body sections remain supported.
+
+Use `content_create_draft` / `content_update` with `data.format`, `data.blocks` and optional `data.hero_layout`. The `menclave://content-schema` MCP resource includes the block schema and available formats. Blocks contain plain text, never arbitrary HTML. Image/video URLs are restricted to approved hosts or local assets. Available hero layouts: `overlay-left`, `overlay-center`, `overlay-right`, `overlay-bottom`, `split`. Placement is an editorial setting; there is no automatic AI image analysis service configured. Lawal and Huang use split covers, stacked on mobile.
+
+The example conversations are visibly labelled samples and closed to new replies. Set `MENCLAVE_SAMPLE_THREADS=0` before first startup to skip seeding them. They are excluded from the sitemap and marked noindex. Real approved conversations have canonical URLs, server-rendered posts/replies, descriptions, Open Graph metadata and DiscussionForumPosting structured data. Pending/removed posts are never rendered. Search and story conversation blocks point to the permanent pages; legacy thread URLs redirect. Backend hosting is required for conversation pages.
+
+Bootstrap upgrades only untouched sample articles whose latest revision was created by bootstrap. Human edits and moderation actions are preserved. Migration 008 adds the sample flag without changing existing posts.
+
+### Media and research credits
+
+- Ibidapo Lawal portrait: supplied by the project owner. Profile references appear at the end of the story: Neveah’s company biography, The Guardian’s 14 October 2024 profile and Opeyemi Awoyemi’s public LinkedIn account. The draft attributes the bankruptcy account and does not assert four formal bankruptcies.
+- Jensen Huang portrait: official NVIDIA newsroom press headshot, downloaded from its biography page. The article links NVIDIA’s 8 November 2026 message, 12 November transition announcement, biography and the referenced WSJ analysis. It is presented as Menclave opinion.
+- Landscape/interior/style photographs: illustrative Unsplash images, credited in captions where they occur; they do not represent people or locations in the fictional stories.
+- Video-player fixture: MDN’s flower clip at `https://mdn.github.io/shared-assets/videos/flower.mp4`; replace it with the finished editorial film for launch. Native controls, no autoplay, and an accessible description are included.
+
+Run `sh scripts/check.sh` for JavaScript syntax, static integrity and Python integration checks. Browser verification covers mobile/desktop portraits, permanent thread navigation, gallery arrows/Escape, checkboxes and native video playback.

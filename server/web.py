@@ -9,7 +9,7 @@ from flask import Flask, request, jsonify, send_file, redirect
 from werkzeug.exceptions import HTTPException
 from server.app import Store, ROOT
 
-CSP = "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https://images.unsplash.com; frame-ancestors 'none'; base-uri 'none'; form-action 'self'"
+CSP = "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https://images.unsplash.com; media-src 'self' https://mdn.github.io; frame-ancestors 'none'; base-uri 'none'; form-action 'self'"
 
 def create_app(store=None, admin_key=None):
     production = os.environ.get('ENCLAVE_ENV') == 'production' and store is None
@@ -52,7 +52,7 @@ def create_app(store=None, admin_key=None):
     def protect(response):
         response.headers.update({'X-Content-Type-Options':'nosniff','Referrer-Policy':'no-referrer','X-Frame-Options':'DENY','Content-Security-Policy':CSP,'Cache-Control':'no-store' if request.path.startswith('/api/') else 'no-cache'})
         if request.path.startswith(('/admin','/oauth/','.well-known')):response.headers['Cache-Control']='no-store'
-        if request.method=='GET' and response.status_code==200 and (request.path in {'/','/index.html','/magazine','/magazine.html','/enclave.html'} or request.path.startswith('/magazine/')):
+        if request.method=='GET' and response.status_code==200 and (request.path in {'/','/index.html','/magazine','/magazine.html','/enclave.html'} or request.path.startswith(('/magazine/','/conversations'))):
             from datetime import date
             ref=urlsplit(request.headers.get('Referer','')).hostname or 'direct'
             if ref==request.host.split(':')[0]:ref='internal'
@@ -170,6 +170,14 @@ def create_app(store=None, admin_key=None):
         data=json.loads(row[0]) if row else {}
         colors={k:v for k,v in data.items() if k in {'accent','paper','ink'} and isinstance(v,str) and re.fullmatch(r'#[0-9a-fA-F]{6}',v)}
         return app.response_class(':root{'+''.join('--'+k+':'+v+';' for k,v in colors.items())+'}',mimetype='text/css')
+    @app.get('/conversations')
+    def conversations_index():
+        from server.conversations import listing
+        return listing(platform)
+    @app.get('/conversations/<id>')
+    def conversation_page(id):
+        from server.conversations import detail
+        return detail(platform,id)
     @app.get('/search')
     def site_search():
         from server.publishing import unified_search
@@ -218,11 +226,25 @@ def create_app(store=None, admin_key=None):
             except (UnidentifiedImageError,OSError,Image.DecompressionBombError):return error('Invalid image.',400)
             db.execute('UPDATE media_uploads SET uploaded=1 WHERE id=?',(upload_id,))
         return jsonify(uploaded=True)
+    @app.get('/assets/<name>')
+    def editorial_asset(name):
+        import re
+        if not re.fullmatch(r'[A-Za-z0-9_-]+\.(?:jpg|png|webp)',name):return error('Not found.',404)
+        path=ROOT/'assets'/name
+        if not path.is_file():return error('Not found.',404)
+        return send_file(path,conditional=True)
     @app.get('/')
     @app.get('/<path:name>')
     def asset(name='index.html'):
         if '/' in name or name.startswith('.') or not (name.endswith(('.html','.css','.js')) or name=='select-chevron.svg'): return error('Not found.',404)
         from server.publishing import home, archive, article
+        if name=='enclave.html':
+            from server.conversations import listing,url
+            id=request.args.get('thread')
+            if id:
+                if not store.thread(id):return error('Not found.',404)
+                return redirect(url(id),308)
+            return listing(platform)
         if name=='index.html':return home(platform)
         if name=='magazine.html':return archive(platform)
         if name.endswith('.html'):

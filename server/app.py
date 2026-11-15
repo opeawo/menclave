@@ -64,8 +64,8 @@ class Store:
     def public(self, row):
         result={k: row[k] for k in ('id','parent','topic','title','body','created')}
         with self.connect() as db:
-            control=db.execute('SELECT staff,locked FROM thread_controls WHERE post=?',(row['id'],)).fetchone()
-            result.update(staff=bool(control['staff']) if control else False,locked=bool(control['locked']) if control else False)
+            control=db.execute('SELECT staff,locked,sample FROM thread_controls WHERE post=?',(row['id'],)).fetchone()
+            result.update(sample=bool(control['sample']) if control else False,staff=bool(control['staff']) if control else False,locked=bool(control['locked']) if control else False)
         return result
     def listing(self, query='', topic=''):
         with self.connect() as db:

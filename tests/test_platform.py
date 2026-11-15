@@ -23,7 +23,7 @@ KEY='test-only-owner-key-at-least-32-characters'
 class PlatformTests(unittest.TestCase):
     def setUp(self):
         self.tmp=tempfile.TemporaryDirectory()
-        self.env=patch.dict(os.environ,{'MENCLAVE_WORKER':'0','ENCLAVE_ENV':'development','MENCLAVE_SMTP_HOST':'','ENCLAVE_ORIGIN':''});self.env.start();setup()
+        self.env=patch.dict(os.environ,{'MENCLAVE_SAMPLE_THREADS':'0','MENCLAVE_WORKER':'0','ENCLAVE_ENV':'development','MENCLAVE_SMTP_HOST':'','ENCLAVE_ORIGIN':''});self.env.start();setup()
         self.store=Store(Path(self.tmp.name)/'test.sqlite3');self.web=create_app(self.store,KEY);self.p=self.web.extensions['platform'];self.owner={'id':'test-client','scopes':sorted(SCOPES)};self.http=self.web.test_client()
     def tearDown(self):self.env.stop();setup();self.tmp.cleanup()
     def call(self,name,**args):
@@ -297,7 +297,7 @@ class PlatformTests(unittest.TestCase):
         self.assertNotIn('Unreviewed cedar question',response.text)
         self.assertNotIn('A private cedar article',response.text)
         self.assertNotIn('private-owner',response.text)
-        self.assertIn('?thread='+public,response.text)
+        self.assertIn('/conversations/'+public,response.text)
         self.assertIn('Public perspective on cedar',self.http.get('/search?q=birchsearch').text)
         self.store.moderate({'id':public,'action':'remove'})
         self.assertNotIn('Public perspective on cedar',self.http.get('/search?q=cedar').text)

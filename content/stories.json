@@ -6,20 +6,63 @@
     "deck": "Character is formed in the choices that rarely make the headlines.",
     "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=1300&q=85",
     "alt": "Portrait of a man",
-    "sections": [
+    "sections": [],
+    "format": "interview",
+    "blocks": [
       {
-        "heading": "Start with the ordinary",
-        "body": "The question becomes practical when we bring it home. How do we speak when we are tired? Do we keep promises when keeping them is inconvenient? Character takes shape in these small decisions, long before it becomes visible to anyone else."
+        "type": "callout",
+        "title": "A fictional conversation",
+        "text": "This Q&A is an invented editorial example with a fictional father, Daniel. It demonstrates an interview layout; these are not statements from a real interviewee."
       },
       {
-        "heading": "Strength with responsibility",
-        "body": "Strength finds its purpose in service. Being dependable, accepting correction and making room for the needs of others demand a kind of courage that cannot be measured by status."
+        "type": "paragraph",
+        "text": "We often describe a good man through what he provides. But what happens when provision becomes the only language he knows? In this imagined conversation, Daniel, a father learning to be more present, talks about the work nobody can put on a résumé."
       },
       {
-        "heading": "A practice, not a finish line",
-        "body": "Faith invites a daily return to humility. Choose one promise to keep this week, one conversation to approach honestly and one person to serve without needing recognition."
+        "type": "heading",
+        "text": "The conversation"
+      },
+      {
+        "type": "qa",
+        "question": "When did your idea of being a good man begin to change?",
+        "answer": "When I realised I could be reliable at work and unreliable emotionally at home. I remembered every deadline but kept postponing difficult conversations with people I loved. I had to stop treating presence as something I would offer after everything else was finished."
+      },
+      {
+        "type": "qa",
+        "question": "What did taking responsibility look like that week?",
+        "answer": "One apology without a defence attached. I told my brother I had dismissed him. Then I listened. Nothing dramatic happened. We made dinner. It felt small, but I had finally stopped trying to win the conversation."
+      },
+      {
+        "type": "image",
+        "src": "https://images.unsplash.com/photo-1500534623283-312aade485b7?w=1300&q=85",
+        "alt": "Open landscape beneath a wide sky",
+        "caption": "Illustrative landscape. A pause between questions."
+      },
+      {
+        "type": "quote",
+        "text": "I had finally stopped trying to win the conversation.",
+        "attribution": "Daniel · fictional interview subject"
+      },
+      {
+        "type": "qa",
+        "question": "Where does faith fit into that?",
+        "answer": "It gives me somewhere to bring the gap between the man I announce and the man I actually am. Reflection matters, but so does repairing what I damaged. For me, a prayer has to make room for a phone call afterwards."
+      },
+      {
+        "type": "qa",
+        "question": "What would you tell someone who feels behind?",
+        "answer": "Choose one relationship and one promise. Make the promise small enough to keep. You do not need to become an impressive new person by Friday. You need to become a little more trustworthy today."
+      },
+      {
+        "type": "heading",
+        "text": "One question to take away"
+      },
+      {
+        "type": "paragraph",
+        "text": "Who receives the least patient version of you—and what would a more generous response look like this evening?"
       }
-    ]
+    ],
+    "concept": true
   },
   {
     "slug": "discipline",
@@ -28,20 +71,64 @@
     "deck": "Make room for what matters through small, repeatable acts of attention.",
     "image": "https://images.unsplash.com/photo-1500534623283-312aade485b7?w=1300&q=85",
     "alt": "Open landscape",
-    "sections": [
+    "sections": [],
+    "format": "checklist",
+    "blocks": [
       {
-        "heading": "Make a little room",
-        "body": "A quiet morning does not need to be an impressive morning. Begin with a few minutes of prayer or reflection before the day fills with other demands."
+        "type": "paragraph",
+        "text": "A useful routine should fit an ordinary Tuesday. Use this seven-day practice to turn an intention into something you can repeat without turning your whole life into a productivity project."
       },
       {
-        "heading": "Choose a sustainable rhythm",
-        "body": "A practice you can return to is more useful than a perfect routine you abandon. Start small, notice what interrupts your attention and adjust your environment."
+        "type": "heading",
+        "text": "Before you begin"
       },
       {
-        "heading": "Return without spectacle",
-        "body": "Missing a day need not become a verdict on your character. Begin again. Let discipline serve a meaningful life rather than become another competition."
+        "type": "paragraph",
+        "text": "Choose one practice: ten quiet minutes, a short walk, a page of reading or a call you keep delaying. Set a minimum that still feels possible on a difficult day. Completing the minimum counts."
+      },
+      {
+        "type": "checklist",
+        "title": "Set up your week",
+        "items": [
+          "Name the practice in one clear sentence.",
+          "Choose a cue already in your day, such as finishing breakfast.",
+          "Put what you need within reach the night before.",
+          "Decide on a two-minute version for a hard day.",
+          "Tell one trusted person what you are trying."
+        ]
+      },
+      {
+        "type": "checklist",
+        "title": "Seven small returns",
+        "items": [
+          "Monday: begin, even if it feels awkward.",
+          "Tuesday: repeat at the same cue.",
+          "Wednesday: notice the obstacle without judging yourself.",
+          "Thursday: adjust the environment rather than adding pressure.",
+          "Friday: use the small version if you need it.",
+          "Saturday: make room for enjoyment.",
+          "Sunday: look back and choose what to carry forward."
+        ]
+      },
+      {
+        "type": "quote",
+        "text": "The practice is returning, not protecting a perfect streak."
+      },
+      {
+        "type": "heading",
+        "text": "Review, then repeat"
+      },
+      {
+        "type": "paragraph",
+        "text": "Ask what made the practice easier, what repeatedly got in the way and whether the minimum was realistic. Keep one useful change. If you missed a day, resume at the next cue rather than doubling the task."
+      },
+      {
+        "type": "callout",
+        "title": "A practice, not a score",
+        "text": "These checkboxes are for this reading session. They are not a saved habit tracker, a spiritual ranking or a measure of your worth."
       }
-    ]
+    ],
+    "concept": true
   },
   {
     "slug": "fatherhood",
@@ -50,20 +137,66 @@
     "deck": "Presence grows through the ordinary moments we choose to share.",
     "image": "https://images.unsplash.com/photo-1511895426328-dc8714191300?w=1300&q=85",
     "alt": "Family spending time together",
-    "sections": [
+    "sections": [],
+    "format": "photo-story",
+    "blocks": [
       {
-        "heading": "Be available",
-        "body": "A shared meal, a walk or a few uninterrupted minutes can open a conversation. Attention tells a child that their everyday experiences matter."
+        "type": "paragraph",
+        "text": "In this fictional family vignette, a father has promised his daughter a Saturday without errands. There is no grand destination. There is a walk, a sandwich and the uncomfortable discovery that leaving a phone alone can feel like work."
       },
       {
-        "heading": "Let repair be visible",
-        "body": "When you speak harshly, acknowledge it plainly. An apology can model responsibility and show that love includes a willingness to change."
+        "type": "heading",
+        "text": "09:10 / The door"
       },
       {
-        "heading": "Build a rhythm together",
-        "body": "Choose a simple ritual you can keep. Make space for listening without turning every conversation into a lesson."
+        "type": "paragraph",
+        "text": "He checks his pocket twice before they leave. Keys, wallet, phone. His daughter is already outside, describing a route that apparently includes every interesting stone on their street. He starts to tell her they are late, then remembers there is nothing to be late for."
+      },
+      {
+        "type": "image",
+        "src": "https://images.unsplash.com/photo-1500534623283-312aade485b7?w=1300&q=85",
+        "alt": "Open landscape beneath a wide sky",
+        "caption": "01 / Leaving the timetable behind. Illustrative stock landscape; not the family in this story."
+      },
+      {
+        "type": "heading",
+        "text": "11:35 / The long way"
+      },
+      {
+        "type": "paragraph",
+        "text": "She asks why he works so much. He reaches for the polished answer about providing. Instead he says that sometimes he finds work easier to understand than being at home. She considers this, then asks whether he can carry her bag. It is a practical beginning."
+      },
+      {
+        "type": "image",
+        "src": "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=1300&q=85",
+        "alt": "Morning light across rolling countryside",
+        "caption": "02 / A little more room. Illustrative stock photograph."
+      },
+      {
+        "type": "paragraph",
+        "text": "At lunch he lets the silence last. He does not turn the afternoon into a lesson. They watch a dog refuse to return a ball. For once, he has no advice to give anyone."
+      },
+      {
+        "type": "heading",
+        "text": "16:20 / Back home"
+      },
+      {
+        "type": "paragraph",
+        "text": "Nothing has been transformed by the time they reach the door. Monday will still be busy. But when she asks about next Saturday, he opens the calendar with her beside him. They put something small in it and leave the rest blank."
+      },
+      {
+        "type": "image",
+        "src": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1300&q=85",
+        "alt": "Mountain peaks beneath clouds",
+        "caption": "03 / Presence is an ordinary promise, kept again. Illustrative stock photograph."
+      },
+      {
+        "type": "callout",
+        "title": "Try a smaller promise",
+        "text": "Set aside one unhurried hour with someone you care for. Let them help decide what happens in it. The point is shared attention, not an impressive itinerary."
       }
-    ]
+    ],
+    "concept": true
   },
   {
     "slug": "ambition",
@@ -72,20 +205,63 @@
     "deck": "A reflection on achievement, stewardship and knowing when enough is enough.",
     "image": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1300&q=85",
     "alt": "Bright office workspace",
-    "sections": [
+    "sections": [],
+    "format": "how-to",
+    "blocks": [
       {
-        "heading": "Ask what success serves",
-        "body": "Work can express creativity and care. It helps to name the people and purposes your ambitions are meant to serve, then examine whether your schedule reflects them."
+        "type": "paragraph",
+        "text": "When every opportunity feels urgent, choosing a direction becomes difficult. This 30-minute review gives you a way to decide what deserves the next season of your attention."
       },
       {
-        "heading": "Notice the cost",
-        "body": "Look at what receives your best attention and what receives what is left. An honest conversation with someone close to you may reveal a tradeoff you have stopped noticing."
+        "type": "callout",
+        "title": "What you need",
+        "text": "A sheet of paper, your calendar and 30 minutes. This is a personal planning exercise, not financial advice."
       },
       {
-        "heading": "Define enough",
-        "body": "Choose boundaries that protect your commitments. Leave room to revisit your goals as your responsibilities and circumstances change."
+        "type": "step",
+        "title": "Write the real commitments",
+        "text": "Spend five minutes listing what you are already responsible for: work, care, money, health and relationships. Include the invisible jobs. A plan built around an imaginary empty calendar will not survive the week."
+      },
+      {
+        "type": "step",
+        "title": "Name the price of the next yes",
+        "text": "Choose the opportunity occupying your thoughts. Write what it would require in hours and attention, and what would receive less of you. Use actual trade-offs instead of a vague promise to work harder."
+      },
+      {
+        "type": "step",
+        "title": "Choose a definition of enough",
+        "text": "Complete this sentence: for the next three months, progress would mean ____. Choose an outcome you can recognise. Being more successful is too slippery; finishing a proposal or protecting two evenings is easier to assess."
+      },
+      {
+        "type": "step",
+        "title": "Make one deliberate no",
+        "text": "Identify a meeting, project or self-imposed obligation that no longer serves that direction. Decline or renegotiate it clearly. Do not fill the space immediately."
+      },
+      {
+        "type": "step",
+        "title": "Book the review",
+        "text": "Put a 15-minute review in your calendar two weeks from now. Ask whether the plan is making you more dependable and whether the cost still makes sense. Revise the plan when the evidence changes."
+      },
+      {
+        "type": "heading",
+        "text": "A worked example"
+      },
+      {
+        "type": "paragraph",
+        "text": "A fictional designer has three side projects and wants a promotion. His next three months become one portfolio case study, one conversation with his manager and two evenings at home each week. He pauses the other projects. The plan is smaller, but it can now be tested against his actual life."
+      },
+      {
+        "type": "checklist",
+        "title": "Before you close the notebook",
+        "items": [
+          "One priority has a clear finish line.",
+          "Its cost appears in the calendar.",
+          "One competing commitment has been removed.",
+          "A review date is booked."
+        ]
       }
-    ]
+    ],
+    "concept": true
   },
   {
     "slug": "starting-again",
@@ -94,20 +270,72 @@
     "deck": "An editorial reflection on asking for help and beginning again.",
     "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1300&q=85",
     "alt": "Mountains in morning light",
-    "sections": [
+    "sections": [],
+    "format": "personal-story",
+    "blocks": [
       {
-        "heading": "Tell the truth to someone",
-        "body": "A difficult season can become more isolating when we try to carry it alone. Consider a trusted friend, pastor or qualified professional who can listen without demanding a polished explanation."
+        "type": "callout",
+        "title": "Fictional first-person story",
+        "text": "This narrative is an original fiction written to demonstrate a longer personal essay with two photographs. It is not a reader testimony."
       },
       {
-        "heading": "Take the next small step",
-        "body": "Rebuilding may begin with an ordinary act: answering a message, asking for support or keeping one manageable commitment."
+        "type": "paragraph",
+        "text": "The first morning after the job ended, I still woke at six. I made coffee, dressed and opened my laptop. There was no meeting to join. The silence felt less like freedom than a question I had spent years avoiding."
       },
       {
-        "heading": "Leave space for uncertainty",
-        "body": "Faith can include unresolved questions. You do not need a finished story to accept companionship along the way."
+        "type": "heading",
+        "text": "The answer I kept giving"
+      },
+      {
+        "type": "paragraph",
+        "text": "For the first week I said I was taking some time out. It was a useful sentence: tidy, voluntary, almost enviable. My friend did not challenge it. He just kept asking whether I wanted to walk on Thursday."
+      },
+      {
+        "type": "paragraph",
+        "text": "On the third Thursday I told him I was embarrassed. Not simply worried about bills, though I was. Embarrassed that I could no longer introduce myself through a job title. We kept walking. He did not offer a quotation about closed doors."
+      },
+      {
+        "type": "image",
+        "src": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1300&q=85",
+        "alt": "Mountain peaks beneath clouds",
+        "caption": "An unfamiliar horizon. Illustrative photograph; not a location from a reported account."
+      },
+      {
+        "type": "heading",
+        "text": "Something smaller than certainty"
+      },
+      {
+        "type": "paragraph",
+        "text": "I expected faith to arrive as an explanation. Instead, what helped was a routine: breakfast before emails, a walk before another application, an honest conversation before another polished update. None of these actions solved the uncertainty. They made it possible to live inside it."
+      },
+      {
+        "type": "quote",
+        "text": "I did not need a better announcement. I needed a more honest day."
+      },
+      {
+        "type": "paragraph",
+        "text": "I began writing down what I could do that afternoon. Some days it was an application. Some days it was asking a former colleague for feedback. On the days when shame made everything heavy, it was answering the friend who had kept checking in."
+      },
+      {
+        "type": "image",
+        "src": "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=1300&q=85",
+        "alt": "Morning light across rolling countryside",
+        "caption": "The ordinary work of another morning. Illustrative stock photograph."
+      },
+      {
+        "type": "heading",
+        "text": "An unfinished ending"
+      },
+      {
+        "type": "paragraph",
+        "text": "There is no triumphant final paragraph in the notebook from that month. The next job had not appeared. What had changed was the list of people who knew the truth. I had stopped making uncertainty a private performance."
+      },
+      {
+        "type": "paragraph",
+        "text": "If I could speak to the version of myself at that first empty desk, I would not promise a quick turnaround. I would tell him to eat breakfast, pick up the phone and let someone walk beside him before he knew where the road would lead."
       }
-    ]
+    ],
+    "concept": true
   },
   {
     "slug": "rest",
@@ -116,20 +344,45 @@
     "deck": "An invitation to give recovery a place in your week.",
     "image": "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=1300&q=85",
     "alt": "Sunlight over a quiet landscape",
-    "sections": [
+    "sections": [],
+    "format": "video",
+    "blocks": [
       {
-        "heading": "Notice your rhythm",
-        "body": "Consider which parts of the week leave you depleted and which help you feel present. Rest begins with paying attention to those patterns."
+        "type": "paragraph",
+        "text": "Before turning rest into another assignment, try giving your attention to one quiet thing. This page demonstrates a video-led feature with a playable clip, a description and a short companion practice."
       },
       {
-        "heading": "Protect a pause",
-        "body": "Set aside a manageable stretch of time without a productivity goal. A quiet walk, a shared meal or an evening away from work can be a starting point."
+        "type": "video",
+        "src": "https://mdn.github.io/shared-assets/videos/flower.mp4",
+        "title": "Flower close-up: sample video player",
+        "caption": "Player demonstration · MDN flower clip. This media fixture is not a Menclave production.",
+        "description": "A short close-up flower clip used by MDN to demonstrate browser video playback. There is no spoken interview or Menclave narration. Use the native playback controls to pause, replay or enter full screen."
       },
       {
-        "heading": "Let others help",
-        "body": "Talk about competing responsibilities with the people who share them. A sustainable rhythm often requires cooperation."
+        "type": "heading",
+        "text": "A minute without an outcome"
+      },
+      {
+        "type": "paragraph",
+        "text": "Sit somewhere comfortable. Put your phone out of reach if you can. Notice what your attention moves towards when nothing is asking for a response. You do not have to clear your mind or produce an insight."
+      },
+      {
+        "type": "step",
+        "title": "Let one task wait",
+        "text": "Choose something non-urgent and give yourself a definite time to return to it. A boundary is easier to trust when it has a beginning and an end."
+      },
+      {
+        "type": "step",
+        "title": "Return gently",
+        "text": "When the pause ends, notice whether you need water, food, company or a quieter evening. Treat the observation as information rather than another target."
+      },
+      {
+        "type": "callout",
+        "title": "For the finished feature",
+        "text": "Replace the demonstration clip with the licensed Menclave film and supply captions and a transcript for any spoken content. The player does not autoplay."
       }
-    ]
+    ],
+    "concept": true
   },
   {
     "slug": "intentional-living",
@@ -138,20 +391,61 @@
     "deck": "A thoughtful approach to the spaces and objects of everyday life.",
     "image": "https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?w=1300&q=85",
     "alt": "Clothing and personal style",
-    "sections": [
+    "sections": [],
+    "format": "gallery",
+    "blocks": [
       {
-        "heading": "Choose with care",
-        "body": "Notice what you use, what you value and what simply takes up space. Let those observations guide your next purchase or decision to keep something."
+        "type": "paragraph",
+        "text": "A room does not need to look like a showroom to support the life happening inside it. This visual essay uses four illustrative photographs to explore space, light and the things we choose to keep."
       },
       {
-        "heading": "Care for what you own",
-        "body": "Repairing, cleaning and maintaining everyday objects can express stewardship. Start with something you already have."
+        "type": "heading",
+        "text": "Less to manage, more to notice"
       },
       {
-        "heading": "Make room for hospitality",
-        "body": "A meaningful home has room for people. Consider one small change that would make sharing your space easier."
+        "type": "paragraph",
+        "text": "Start with the place where your day begins. What do you reach for? What do you move out of the way? A useful space makes ordinary actions easier. The photographs below are visual references, not a documented tour of one home."
+      },
+      {
+        "type": "gallery",
+        "title": "Four studies in attention",
+        "images": [
+          {
+            "src": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1300&q=85",
+            "alt": "A shared interior with desks and seating",
+            "caption": "01 / Space to work. Leave one surface ready for the next task."
+          },
+          {
+            "src": "https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?w=1300&q=85",
+            "alt": "Clothing arranged as a style reference",
+            "caption": "02 / Things in use. Choose what serves your actual week."
+          },
+          {
+            "src": "https://images.unsplash.com/photo-1500534623283-312aade485b7?w=1300&q=85",
+            "alt": "An expansive natural landscape",
+            "caption": "03 / A wider view. Give the eye somewhere to rest."
+          },
+          {
+            "src": "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=1300&q=85",
+            "alt": "Soft light over countryside",
+            "caption": "04 / A slower start. Notice the light before the notifications."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "One useful edit"
+      },
+      {
+        "type": "paragraph",
+        "text": "Choose one corner, drawer or daily routine. Remove what repeatedly gets in the way. Put one useful thing where it belongs. Live with the change for a week before buying a solution."
+      },
+      {
+        "type": "quote",
+        "text": "A well-used life will leave things out of place. Make room for that, too."
       }
-    ]
+    ],
+    "concept": true
   },
   {
     "slug": "listening",
@@ -160,19 +454,284 @@
     "deck": "Curiosity and conviction can share the same conversation.",
     "image": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1300&q=85",
     "alt": "People gathered at an event",
-    "sections": [
+    "sections": [],
+    "format": "conversation",
+    "blocks": [
       {
-        "heading": "Begin with a question",
-        "body": "Ask what experience shaped the other person’s view. Listen long enough to understand their answer before preparing your reply."
+        "type": "paragraph",
+        "text": "Listening gets harder when a disagreement starts to feel like a verdict on who we are. Before planning your response, try finding the experience underneath the other person’s position."
       },
       {
-        "heading": "Speak with care",
-        "body": "State your convictions clearly while leaving room for correction. You can disagree without turning a person into an argument to win."
+        "type": "heading",
+        "text": "Stay with the actual conversation"
       },
       {
-        "heading": "Know when to pause",
-        "body": "Some conversations need time. A respectful pause can give both people space to return with more patience."
+        "type": "paragraph",
+        "text": "Ask what led them to see it that way. You are not promising agreement. You are giving yourself a better chance of understanding what is being said, rather than arguing with the version you expected."
+      },
+      {
+        "type": "image",
+        "src": "https://images.unsplash.com/photo-1500534623283-312aade485b7?w=1300&q=85",
+        "alt": "Open landscape beneath a wide sky",
+        "caption": "Room for a different perspective. Illustrative stock photograph."
+      },
+      {
+        "type": "callout",
+        "title": "A sentence to try",
+        "text": "I think I understand your conclusion. What happened that made this matter to you?"
+      },
+      {
+        "type": "heading",
+        "text": "Take it into the room"
+      },
+      {
+        "type": "paragraph",
+        "text": "The linked conversation is a clearly marked fictional example showing a question, several different replies and moderator controls. It lives in The Enclave, where real contributions still go through the usual review process."
+      },
+      {
+        "type": "thread",
+        "title": "How do you listen when you already disagree?",
+        "text": "Explore a fictional conversation with three sample replies. The example is closed to new replies so it stays distinct from real community discussion.",
+        "thread_id": "sample-listening"
       }
-    ]
+    ],
+    "concept": true
+  },
+  {
+    "slug": "ibidapo-lawal",
+    "title": "Ibidapo Lawal and the Courage to Learn Again",
+    "category": "Money & Ambition",
+    "format": "profile",
+    "deck": "He had the ambition. Experience supplied the hard lessons. Business school became a turning point. The Neveah founder’s story asks what it takes to build differently the next time.",
+    "image": "/assets/ibidapo-lawal.png",
+    "alt": "Ibidapo Lawal in a dark suit and tie, in the portrait supplied for this sample",
+    "concept": true,
+    "sections": [],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "There is a version of the entrepreneurial story that begins at the breakthrough. The company has a name, the founder has a biography, and the difficult years have been compressed into a sentence about perseverance. Ibidapo Lawal’s story becomes more interesting when you resist that compression."
+      },
+      {
+        "type": "paragraph",
+        "text": "Before Neveah, there were earlier businesses. Before the polished account of growth, there were setbacks. And somewhere along the way came a decision to return to the classroom—a reminder that ambition can take a man a long way without answering every question he needs to ask."
+      },
+      {
+        "type": "heading",
+        "text": "The ambition came first"
+      },
+      {
+        "type": "paragraph",
+        "text": "Opeyemi Awoyemi, who identifies Lawal as his cousin in a public reflection on his journey, describes a man whose appetite for building was apparent early. Wealth arrived young, he writes, but it did not arrive with a guarantee of permanence. His account describes Lawal as having been bankrupt at least twice."
+      },
+      {
+        "type": "paragraph",
+        "text": "That detail changes the rhythm of the success story. It introduces a more demanding subject than confidence: the ability to begin again after the evidence has become uncomfortable. To build is to make decisions before the outcome is clear. To rebuild is to do it with a memory of what the last attempt cost."
+      },
+      {
+        "type": "paragraph",
+        "text": "Awoyemi places a significant turn in that journey at business school in the United States. In his telling, formal education joined an existing mixture of drive, practical intelligence and experience. Watching that combination develop helped shape his own determination to pursue further education."
+      },
+      {
+        "type": "heading",
+        "text": "A different kind of investment"
+      },
+      {
+        "type": "paragraph",
+        "text": "Lawal’s educational path took him from Ibadan to Lead City University, where he studied Economics, and then to Drexel University for an MBA. Both Neveah’s management biography and The Guardian’s October 2024 profile record that progression."
+      },
+      {
+        "type": "paragraph",
+        "text": "For an entrepreneur, going back to school is an investment with an unusual admission built into it: there are things I do not yet know. Experience brings knowledge, but it can also harden a habit into a rule. A classroom creates an opportunity to place those rules beside other ways of thinking."
+      },
+      {
+        "type": "quote",
+        "text": "The courage to begin again matters. So does the humility to begin differently."
+      },
+      {
+        "type": "paragraph",
+        "text": "The value of that opportunity is not that a degree removes risk. It is that learning can improve the questions brought to a decision. What is the business actually earning? Which risks are being rewarded, and which are simply being repeated? What survives when the founder is no longer in every room? These are questions for anyone trying to turn personal drive into an enduring institution."
+      },
+      {
+        "type": "heading",
+        "text": "Building beyond the founder"
+      },
+      {
+        "type": "paragraph",
+        "text": "The Guardian traces Lawal’s business activity through IAL Resources and Activo Global Investments, established in 2007, before Neveah’s arrival in 2014. Its profile describes a company exporting solid minerals and agricultural products. Neveah’s own account now places industrial recycling alongside its commodities business."
+      },
+      {
+        "type": "paragraph",
+        "text": "Those businesses make the story tangible. This is an ambition expressed through products, buyers, exports and industrial activity. The work is less romantic than the language often used to describe entrepreneurship. It involves turning a promise into something another person can depend on, then doing it again."
+      },
+      {
+        "type": "paragraph",
+        "text": "That is where a founder’s development becomes more than a private achievement. A company is a set of commitments to people who did not share the founder’s original leap of faith: employees, customers, partners and families. Growth increases the number of people affected by the quality of the decisions at the top."
+      },
+      {
+        "type": "heading",
+        "text": "What a setback is for"
+      },
+      {
+        "type": "paragraph",
+        "text": "It is easy to admire resilience after the turnaround. It is harder to recognise the quieter work that makes a turnaround useful: accepting criticism, revising an assumption, asking someone better informed, abandoning a method that once felt inseparable from your identity."
+      },
+      {
+        "type": "paragraph",
+        "text": "Lawal’s journey offers a way into that conversation. The appeal is not a promise that every failure contains a future fortune. Some mistakes are costly, and some opportunities do not return. The more useful possibility is that a man can take responsibility for what experience has taught him and allow it to change the next attempt."
+      },
+      {
+        "type": "heading",
+        "text": "The next version of ambition"
+      },
+      {
+        "type": "paragraph",
+        "text": "For men taught to equate competence with always knowing the answer, becoming a student again can feel like a loss of standing. Yet a willingness to learn may be one of the strongest expressions of seriousness about the work. The objective is bigger than appearing naturally gifted at it."
+      },
+      {
+        "type": "paragraph",
+        "text": "The lasting question in Lawal’s story is therefore not simply how much he wanted to succeed. It is what he was willing to change in pursuit of building something that could last. Ambition supplied the movement. Learning gave the journey another direction."
+      },
+      {
+        "type": "sources",
+        "items": [
+          {
+            "title": "Neveah Limited · Company profile and management biography",
+            "url": "https://neveah.com.ng/company-profile"
+          },
+          {
+            "title": "Odita Sunday · Meet Ibidapo Lawal Idris, CEO of Neveah Ltd · The Guardian, 14 October 2024",
+            "url": "https://guardian.ng/specials/https-guardian-ng-wp-admin-post-phppost2454645actionedit/"
+          },
+          {
+            "title": "Opeyemi Awoyemi · Public account of Ibidapo Lawal’s entrepreneurial journey · LinkedIn",
+            "url": "https://www.linkedin.com/posts/opeawo_ibidapo-lawal-ive-said-a-lot-about-ibidapo-activity-7511334351851327488-nmjG"
+          }
+        ]
+      }
+    ],
+    "hero_layout": "split"
+  },
+  {
+    "slug": "jensen-huang",
+    "title": "Jensen Huang, Our Man of the Year: Greatness Comes With Consequences",
+    "category": "Culture & Society",
+    "format": "opinion",
+    "deck": "He helped change the world. He also let people down. His resignation gives us a harder conversation about achievement, accountability and the limits of a founder’s claim on his company.",
+    "image": "/assets/jensen-huang.jpg",
+    "alt": "Jensen Huang in an official NVIDIA press portrait",
+    "concept": true,
+    "sections": [],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "A man can build something extraordinary and still fail the people closest to him. Holding those two facts together is uncomfortable. It is also where an honest conversation about leadership has to begin."
+      },
+      {
+        "type": "paragraph",
+        "text": "Jensen Huang is our Man of the Year because his story now forces that conversation. The builder who became one of the defining figures of the artificial-intelligence era has stepped away from the company he co-founded. His achievements remain. So do the consequences of his choices. Neither cancels the other."
+      },
+      {
+        "type": "heading",
+        "text": "The achievement is real"
+      },
+      {
+        "type": "paragraph",
+        "text": "NVIDIA’s biography dates Huang’s founding of the company to 1993. Across the decades that followed, graphics processors became central to a much wider computing transformation. His career helped put accelerated computing at the heart of an industry that now reaches far beyond gaming."
+      },
+      {
+        "type": "paragraph",
+        "text": "That is an extraordinary professional legacy. It is also an insufficient answer to a question about conduct. A company’s importance does not make its founder exempt from obligations to family, colleagues or the institution he helped create."
+      },
+      {
+        "type": "heading",
+        "text": "So is the failure"
+      },
+      {
+        "type": "paragraph",
+        "text": "In a November 8 message published by NVIDIA, Huang acknowledged being unfaithful to his wife, apologised to his family and colleagues, and accepted responsibility for the harm he had caused. He also said he supported the board’s independent investigation into national-security concerns raised in reporting."
+      },
+      {
+        "type": "quote",
+        "text": "There is no excuse for what I did.",
+        "attribution": "Jensen Huang · message to NVIDIA employees, November 8, 2026"
+      },
+      {
+        "type": "paragraph",
+        "text": "The admission matters. An apology that names the act and the people hurt gives accountability somewhere to begin. It does not finish the work. Trust belongs to the people whose trust was damaged; it cannot be restored by the applause of strangers."
+      },
+      {
+        "type": "heading",
+        "text": "The company has to be bigger than one man"
+      },
+      {
+        "type": "paragraph",
+        "text": "On November 12, NVIDIA announced Huang’s resignation as president, chief executive and director. Colette Kress was appointed interim chief executive, with Harvey C. Jones becoming chair of the board. The company began a search for a permanent successor."
+      },
+      {
+        "type": "paragraph",
+        "text": "For us, the lesson is the importance of allowing an institution to continue beyond the person most closely associated with it. Founding a company creates a profound relationship. It does not create an unlimited entitlement to lead it. Employees, customers and shareholders have lives and obligations beyond the founder’s story."
+      },
+      {
+        "type": "paragraph",
+        "text": "The public announcement establishes the transition. It cannot tell us every conversation behind closed doors. We should therefore be careful about turning a resignation into proof of private serenity or claiming that there was no conflict with the board. What we can assess is the public acknowledgement of wrongdoing and the fact that the leadership changed."
+      },
+      {
+        "type": "heading",
+        "text": "What we mean by man of the year"
+      },
+      {
+        "type": "paragraph",
+        "text": "This is an editorial choice, not a declaration of moral perfection. We are interested in a man whose scale of achievement and scale of consequence make the questions impossible to avoid. Did he fail? By his own account, yes. Does acknowledging that failure matter? Yes. Does stepping down erase it? No."
+      },
+      {
+        "type": "paragraph",
+        "text": "The standard should travel. We would ask the same of Elon Musk, a founder running a small business or a man leading his household: can you hear that you have caused harm without making your status the centre of the conversation? Can you accept a consequence you would rather avoid? The test becomes more demanding as power grows."
+      },
+      {
+        "type": "paragraph",
+        "text": "There is room to recognise the builder without asking the people hurt by his behaviour to become supporting characters in a redemption story. Their forgiveness is not ours to award. Nor should allegations still under investigation be treated as established findings."
+      },
+      {
+        "type": "heading",
+        "text": "An ending we cannot write yet"
+      },
+      {
+        "type": "paragraph",
+        "text": "Huang may return to a prominent leadership role, or he may not. We do not know. A comeback would not by itself establish repair, just as an absence from the spotlight would not tell us everything about the work being done in private."
+      },
+      {
+        "type": "paragraph",
+        "text": "What makes this moment worth examining is the boundary it puts around greatness. Talent does not settle every argument. Building an institution does not place a man above it. The ability to change the world must live alongside the willingness to answer for what you do inside it."
+      },
+      {
+        "type": "image",
+        "src": "/assets/jensen-huang.jpg",
+        "alt": "Official NVIDIA portrait of founder Jensen Huang",
+        "caption": "Jensen Huang. Official press photograph: NVIDIA."
+      },
+      {
+        "type": "sources",
+        "items": [
+          {
+            "title": "NVIDIA · CEO transition announcement · November 12, 2026",
+            "url": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition"
+          },
+          {
+            "title": "NVIDIA · A message to our company · November 8, 2026",
+            "url": "https://nvidianews.nvidia.com/news/a-message-to-our-company"
+          },
+          {
+            "title": "NVIDIA · Jensen Huang biography and official press photograph",
+            "url": "https://nvidianews.nvidia.com/bios/jensen-huang"
+          },
+          {
+            "title": "Asa Fitch · Nvidia shareholders won’t miss Jensen Huang for long · The Wall Street Journal",
+            "url": "https://www.wsj.com/finance/stocks/nvidia-shareholders-wont-miss-jensen-huang-for-long-13429e31"
+          }
+        ]
+      }
+    ],
+    "hero_layout": "split"
   }
 ]

@@ -1,4 +1,5 @@
 """Permission-enforced services used by MCP and the administrative HTTP interface."""
+from server.editorial import validate_blocks, render_blocks, FORMATS, HERO_LAYOUTS, safe_media
 import hashlib
 import json
 import os
@@ -72,6 +73,11 @@ class Platform:
             require('\n' not in data['title'] and '\r' not in data['title'],'Titles must be a single line.')
             require(re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*',data.get('slug','')) is not None,'A lowercase URL slug is required.')
             require(isinstance(data.get('sections',[]),list) and len(data.get('sections',[]))<=100,'Invalid sections.')
+            require(data.get('format','personal-story') in FORMATS,'Invalid article format.')
+            require(data.get('hero_layout','overlay-left') in HERO_LAYOUTS,'Invalid hero layout.')
+            if 'blocks' in data:
+                try:validate_blocks(data['blocks'])
+                except ValueError as error:raise DomainError('invalid_arguments',str(error))
             for section in data.get('sections',[]):
                 require(isinstance(section,dict) and all(isinstance(section.get(k,''),str) for k in ('heading','body')),'Sections contain plain heading/body text.')
             for field in ['deck','category','alt','image','author_id','media_id']:
@@ -82,7 +88,7 @@ class Platform:
                 require(isinstance(data.get(field,''),str),'Invalid '+field)
             if data.get('canonical'):require(re.fullmatch(r'/(?!/)[A-Za-z0-9/_-]*',data['canonical']) is not None,'Canonical must be a local path.')
             if data.get('image'):
-                url=urlsplit(data['image']);require(url.scheme=='https' and url.hostname=='images.unsplash.com' and not url.username,'Use uploaded media or an approved HTTPS image host.')
+                require(safe_media(data['image']),'Use uploaded media or an approved image host.')
             duplicate=db.execute("SELECT id FROM entities WHERE kind IN ('article','interview','news','page','newsletter') AND json_extract(data,'$.slug')=? AND id!=?",(data['slug'],id or '')).fetchone()
             require(not duplicate,'That slug is already in use.','conflict')
         existing=db.execute('SELECT * FROM entities WHERE id=?',(id,)).fetchone() if id else None
@@ -151,14 +157,15 @@ class Platform:
             item=self.get(db,a['id'],'newsletter' if tool=='newsletter_preview' else read)
             if tool in {'content_validate','seo_audit'}:
                 data=item['data'];issues=[]
-                for field in ['title','slug','deck','sections']:
+                for field in ['title','slug','deck']:
                     if not data.get(field):issues.append('Missing '+field)
+                if not (data.get('blocks') or data.get('sections')):issues.append('Missing body content')
                 if data.get('image') and not data.get('alt'):issues.append('Image alt text is missing')
                 if not data.get('concept',True) and not data.get('approved_copy'):issues.append('Real editorial copy needs approval')
                 return {'valid':not issues,'issues':issues,'revision':item['revision']}
             if tool in {'content_preview','newsletter_preview'}:
                 from jinja2 import Environment
-                item['preview_html']=Environment(autoescape=True).from_string('<article>{% if story.concept %}<p>EDITORIAL CONCEPT</p>{% endif %}<h1>{{story.title}}</h1><p>{{story.deck}}</p>{% for section in story.sections %}<section><h2>{{section.heading}}</h2><p>{{section.body}}</p></section>{% endfor %}</article>').render(story=item['data'])
+                item['preview_html']=Environment(autoescape=True).from_string('<article>{% if story.concept %}<p>EDITORIAL CONCEPT</p>{% endif %}<h1>{{story.title}}</h1><p>{{story.deck}}</p>{{body|safe}}</article>').render(story=item['data'],body=render_blocks(item['data']))
                 item['owner_preview_path']='/admin/preview/'+item['id']
                 return item
             if tool=='social_preview':return {'title':item['data']['title'],'description':item['data'].get('deck',''),'image':item['data'].get('image'),'url':'/magazine/'+item['data']['slug']}
@@ -174,7 +181,7 @@ class Platform:
         states={'content_publish':'published','content_unpublish':'draft','content_archive':'archived','content_restore':'draft','editorial_request_review':'review'}
         if tool in states:
             old=self.get(db,a['id'],read)
-            if tool=='content_publish':require(bool(old['data'].get('sections')),'Content must have sections before publishing.')
+            if tool=='content_publish':require(bool(old['data'].get('blocks') or old['data'].get('sections')),'Content must have body content before publishing.')
             if tool in {'content_unpublish','content_archive'}:
                 require(a['expected_revision']==old['revision'],'Record changed.','conflict')
                 db.execute('DELETE FROM published_content WHERE entity=?',(a['id'],))
@@ -432,7 +439,7 @@ class Platform:
         if tool=='newsletter_get_delivery':
             row=db.execute("SELECT id,state,result,created,updated FROM jobs WHERE id=? AND kind='newsletter'",(a['id'],)).fetchone();require(row is not None,'Delivery unavailable.','not_found');return {**dict(row),'result':json.loads(row['result'])}
         require(bool(os.environ.get('MENCLAVE_SMTP_HOST')),'SMTP delivery is not configured.','unavailable')
-        item=self.get(db,a['id'],'newsletter');require(bool(item['data'].get('sections')),'Newsletter content required.')
+        item=self.get(db,a['id'],'newsletter');require(bool(item['data'].get('blocks') or item['data'].get('sections')),'Newsletter content required.')
         require(a.get('expected_revision')==item['revision'],'Newsletter changed.','conflict')
         if tool=='newsletter_schedule':require(a['due']>now(),'Schedule must be in the future.')
         payload={'id':item['id'],'revision':item['revision'],'test':tool=='newsletter_send_test'}

@@ -1,3 +1,5 @@
+import os
+from unittest.mock import patch
 import http.client
 import json
 import sys
@@ -16,6 +18,7 @@ class QuietHandler(WSGIRequestHandler):
 
 class CommunityTests(unittest.TestCase):
     def setUp(self):
+        env=patch.dict(os.environ,{'MENCLAVE_SAMPLE_THREADS':'0'});env.start();self.addCleanup(env.stop)
         self.tmp=tempfile.TemporaryDirectory()
         self.store=Store(Path(self.tmp.name)/'test.sqlite3')
         self.key='test-only-moderator-key-not-a-real-secret'
@@ -73,7 +76,7 @@ class CommunityTests(unittest.TestCase):
         for path in ['/server/app.py','/.local/enclave.sqlite3','/content/stories.json','/../AGENTS.md']:
             self.assertEqual(self.request('GET',path)[0],404)
         status,html,headers=self.request('GET','/enclave.html')
-        self.assertEqual(status,200);self.assertIn('NO MASKS.',html);self.assertIn("script-src 'self'",headers['Content-Security-Policy'])
+        self.assertEqual(status,200);self.assertIn('Conversations.',html);self.assertIn("script-src 'self'",headers['Content-Security-Policy'])
     def test_storage_persistence_search_and_rate_limit(self):
         id=self.question();self.approve(id)
         store=Store(self.store.path)
@@ -88,7 +91,7 @@ class CommunityTests(unittest.TestCase):
     def test_schema_upgrade_audit_and_backup(self):
         id=self.question();self.approve(id)
         with self.store.connect() as db:
-            self.assertEqual(db.execute('PRAGMA user_version').fetchone()[0],7)
+            self.assertEqual(db.execute('PRAGMA user_version').fetchone()[0],8)
             audit=db.execute('SELECT * FROM moderation_audit').fetchone()
             self.assertEqual(audit['target'],id)
             self.assertNotIn('body',audit.keys())

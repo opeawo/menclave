@@ -1,5 +1,6 @@
 """Explicit tool schemas; every action is checked again at execution time."""
 import os
+from server.editorial import BLOCKS_SCHEMA, FORMATS, HERO_LAYOUTS
 import json
 from jsonschema import Draft202012Validator
 from server.services import DomainError, SCOPES
@@ -117,6 +118,8 @@ CONTENT_FIELDS={
  'approved_copy':{'type':'boolean'},'seo_title':{'type':'string','maxLength':200},
  'seo_description':{'type':'string','maxLength':500},'canonical':{'type':'string','pattern':'^/(?!/)[A-Za-z0-9/_-]*$'},
  'noindex':{'type':'boolean'},'review':OBJ,
+ 'hero_layout':{'type':'string','enum':HERO_LAYOUTS},
+ 'format':{'type':'string','enum':FORMATS},'blocks':BLOCKS_SCHEMA,
  'sections':{'type':'array','maxItems':100,'items':{'type':'object','properties':{'heading':{'type':'string','maxLength':1000},'body':{'type':'string','maxLength':30000}},'required':['heading','body'],'additionalProperties':False}}
 }
 def enhance_schemas():

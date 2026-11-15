@@ -1,4 +1,5 @@
 """Durable publisher, newsletter outbox and webhook dispatcher. No ambiguous SMTP retries."""
+from server.editorial import blocks_text
 import argparse
 import json
 import os
@@ -88,7 +89,7 @@ def send_newsletter(platform,job_id,payload):
                 changed=db.execute("UPDATE job_deliveries SET state='sending',updated=? WHERE job=? AND recipient=? AND state='queued'",(now(),job_id,email)).rowcount
             if not changed:continue
             message=EmailMessage();message['From']=sender;message['To']=email;message['Subject']=('[TEST] ' if payload.get('test') else '')+item['data']['title'];message['Message-ID']='<'+store.digest(job_id+':'+email)+'@'+base.split('://')[1]+'>'
-            body='\n\n'.join(section.get('heading','')+'\n'+section.get('body','') for section in item['data'].get('sections',[]))
+            body=blocks_text(item['data']['blocks']) if item['data'].get('blocks') else '\n\n'.join(section.get('heading','')+'\n'+section.get('body','') for section in item['data'].get('sections',[]))
             if subscriber:
                 link=base+'/unsubscribe/'+subscriber['id']+'/'+store.digest('unsubscribe:'+subscriber['id'])
                 body+='\n\nUnsubscribe: '+link;message['List-Unsubscribe']='<'+link+'>';message['List-Unsubscribe-Post']='List-Unsubscribe=One-Click'

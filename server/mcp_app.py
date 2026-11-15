@@ -1,4 +1,5 @@
 """Official SDK Streamable HTTP server and per-request authentication boundary."""
+from server.editorial import BLOCKS_SCHEMA, FORMATS, HERO_LAYOUTS
 import contextvars
 import json
 import logging
@@ -47,7 +48,7 @@ def create_asgi(flask_app,platform):
     async def read_resource(ctx,params):
         name=str(params.uri).removeprefix('menclave://')
         if name not in RESOURCE_SCOPES or RESOURCE_SCOPES[name] not in principal()['scopes']:raise ValueError('Resource unavailable')
-        value={'brand':{'name':'Menclave','tagline':'The Art of Being a Man','palette':['#121212','#f4f0e9','#a32e2b']},'editorial-guidelines':{'rules':['No invented reporting or real-person quotes','Mark concepts clearly','Publish only approved editorial copy']},'content-schema':{'required':['title','slug'],'sections':'Plain heading/body objects','types':['article','interview','news','page','newsletter']},'operations/runbook':{'health':'/api/health','persistence':'Single replica, durable SQLite volume','restore':'Offline operator maintenance only'}}.get(name)
+        value={'brand':{'name':'Menclave','tagline':'The Art of Being a Man','palette':['#121212','#f4f0e9','#a32e2b']},'editorial-guidelines':{'rules':['No invented reporting or real-person quotes','Mark concepts clearly','Publish only approved editorial copy']},'content-schema':{'required':['title','slug'],'formats':FORMATS,'blocks':BLOCKS_SCHEMA,'hero_layouts':HERO_LAYOUTS,'sections':'Legacy plain heading/body objects','types':['article','interview','news','page','newsletter']},'operations/runbook':{'health':'/api/health','persistence':'Single replica, durable SQLite volume','restore':'Offline operator maintenance only'}}.get(name)
         if name=='capabilities':value=dispatch(platform,'app_get_capabilities',{},principal())
         if name=='community-guidelines':value=dispatch(platform,'community_get_guidelines',{},principal())
         if name=='publishing-calendar':value=dispatch(platform,'editorial_calendar',{},principal())
