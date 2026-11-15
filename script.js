@@ -30,33 +30,14 @@
   }
 })();
 (() => {
-  const search = document.querySelector('#story-search');
-  if (!search) return;
-  const cards = [...document.querySelectorAll('.archive-card')];
-  const params = new URLSearchParams(location.search);
-  search.value = params.get('q') || '';
-  const category = params.get('category') || '';
-  document.querySelector('#archive-heading').textContent = category || 'The Magazine.';
-  document.querySelector('#archive-all-stories').hidden = !category && !search.value;
-  if(search.value) search.closest('details').open = true;
-  const filter = () => {
-    const query = search.value.trim().toLocaleLowerCase();
-    let count = 0;
-    cards.forEach(card => {
-      card.hidden = !(card.textContent.toLocaleLowerCase().includes(query) && (!category || card.dataset.category === category));
-      if (!card.hidden) count++;
-    });
-    document.querySelector('#archive-status').textContent = `${count} ${count === 1 ? 'story' : 'stories'}`;
-    document.querySelector('#archive-empty').hidden = count !== 0;
-    document.querySelector('#archive-all-stories').hidden = !category && !search.value;
-    const url = new URL(location.href);
-    for (const [key, value] of [['q', search.value], ['category', category]]) {
-      if (value) url.searchParams.set(key, value); else url.searchParams.delete(key);
+  const input = document.querySelector('#global-query');
+  if (!input) return;
+  input.value = new URLSearchParams(location.search).get('q') || '';
+  document.addEventListener('keydown', event => {
+    const editing = event.target.closest('input, textarea, select, [contenteditable="true"]');
+    if (event.key === '/' && !editing && !event.ctrlKey && !event.metaKey && !document.querySelector('dialog[open]')) {
+      event.preventDefault(); input.focus();
     }
-    history.replaceState(null, '', url);
-  };
-  search.addEventListener('input', filter);
-  search.form.addEventListener('submit', event => event.preventDefault());
-  search.form.addEventListener('reset', () => { search.value = ''; filter(); });
-  filter();
+    if (event.key === 'Escape' && document.activeElement === input) input.blur();
+  });
 })();

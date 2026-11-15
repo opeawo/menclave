@@ -170,6 +170,10 @@ def create_app(store=None, admin_key=None):
         data=json.loads(row[0]) if row else {}
         colors={k:v for k,v in data.items() if k in {'accent','paper','ink'} and isinstance(v,str) and re.fullmatch(r'#[0-9a-fA-F]{6}',v)}
         return app.response_class(':root{'+''.join('--'+k+':'+v+';' for k,v in colors.items())+'}',mimetype='text/css')
+    @app.get('/search')
+    def site_search():
+        from server.publishing import unified_search
+        return unified_search(platform)
     @app.get('/magazine')
     def magazine_archive():
         from server.publishing import archive

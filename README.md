@@ -31,6 +31,7 @@ Set a strong, unique `ENCLAVE_ADMIN_KEY` securely in the process environment bef
 
 ## What is implemented
 
+- Shared header search across published articles and approved community conversations; inline social-style anonymous posting.
 - Responsive magazine design; CMS-managed content with revisions, draft/public snapshots, review and scheduling.
 - Anonymous questions/replies, approval queues, reports, thread locks, staff-labeled prompts and editable guidelines/abuse limits.
 - Media upload and transformations, branding/navigation/homepage settings, author/category/tag records, redirects and SEO/feed generation.
