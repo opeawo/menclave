@@ -243,6 +243,9 @@ def create_app(store=None, admin_key=None):
     def asset(name='index.html'):
         if '/' in name or name.startswith('.') or not (name.endswith(('.html','.css','.js')) or name=='select-chevron.svg'): return error('Not found.',404)
         from server.publishing import home, archive, article
+        if name=='contributors.html':
+            from server.publishing import contributors
+            return contributors(platform)
         if name=='enclave.html':
             from server.conversations import listing,url
             id=request.args.get('thread')
